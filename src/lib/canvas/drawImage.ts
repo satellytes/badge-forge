@@ -10,6 +10,11 @@ export const drawImage = (
   const shiftX = (context.canvas.width - image.width * ratio) / 2;
   const shiftY = (context.canvas.height - image.height * ratio) / 2;
 
+  // crop to circle
+  context.beginPath();
+  context.arc(context.canvas.width/2, context.canvas.height/2,context.canvas.width/2,0,Math.PI*2);
+  context.clip();
+
   context.drawImage(
     image,
     dx,

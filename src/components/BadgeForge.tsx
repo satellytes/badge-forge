@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
+import { drawDonut } from "../lib/canvas/drawDonut";
 import { drawImage } from "../lib/canvas/drawImage";
 import { drawTextAlongArc } from "../lib/canvas/drawTextAlongArc";
 import { Canvas } from "./Canvas";
@@ -8,7 +9,7 @@ import { RenderButton } from "./RenderButton";
 import { TextLabel } from "./TextLabel";
 
 const useDrawBadge = () => {
-  const { canvasRef, canvasHeight, canvasWidth, selectedFile, label } =
+  const { canvasRef, canvasHeight, canvasWidth, selectedFile, label, donutColor, innerRadius } =
     useContext(BadgeForgeContext);
 
   const context = canvasRef.current?.getContext("2d");
@@ -32,20 +33,29 @@ const useDrawBadge = () => {
 
       image.addEventListener("load", () => {
         drawImage(context, image, 0, 0);
-        drawTextAlongArc(context, label, 150, 150, -130, -0.45);
+        drawDonut(context, canvasHeight, innerRadius, donutColor);
+        drawTextAlongArc(
+          context,
+          label,
+          canvasWidth / 2,
+          canvasHeight / 2,
+          -(canvasWidth / 2 - 50),
+          -0.45
+        );
       });
     }
-  }, [context, canvasHeight, canvasWidth, selectedFile, label]);
+  }, [context, canvasHeight, canvasWidth, selectedFile, label, innerRadius, donutColor]);
 };
 
 export const BadgeForge = () => {
   useDrawBadge();
+  const {canvasWidth, canvasHeight}  = useContext(BadgeForgeContext);
 
   return (
     <>
       <ImageSelector />
       <TextLabel />
-      <Canvas />
+      <Canvas canvasWidth={canvasWidth} canvasHeight={canvasHeight} />
       <RenderButton />
     </>
   );
