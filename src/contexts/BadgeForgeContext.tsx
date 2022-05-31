@@ -1,12 +1,5 @@
 import { createContext, ReactNode, RefObject, useRef, useState } from "react";
 
-interface color {
-  r: number,
-  g: number,
-  b: number,
-  a?: number
-}
-
 interface BadgeForgeContextState {
   // Canvas
   canvasRef: RefObject<HTMLCanvasElement>;
@@ -14,10 +7,12 @@ interface BadgeForgeContextState {
   canvasHeight: number;
 
   // Donut properties
-  donutColor: color;
+  donutColor: string;
   innerRadius: number;
-  setDonutColor: (color: color) => void;
+  angle: number;
+  setDonutColor: (color: string) => void;
   setInnerRadius: (radius: number) => void;
+  setAngle: (angle: number) => void;
 
   // File Image
   selectedFile: File | null;
@@ -25,9 +20,9 @@ interface BadgeForgeContextState {
 
   // Label Text
   label: string;
-  labelColor: color;
+  labelColor: string;
   setLabel: (label: string) => void;
-  setLabelColor: (color: color) => void; 
+  setLabelColor: (color: string) => void;
 }
 export const BadgeForgeContext = createContext({} as BadgeForgeContextState);
 
@@ -42,11 +37,12 @@ export const BadgeForgeContextProvider = ({
   const canvasHeight = canvasWidth;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [label, setLabel] = useState<string>("");
-  const [donutColor, setDonutColor] = useState<color>({ r: 121, g: 75, b: 196 });
-  const [innerRadius, setInnerRadius] = useState<number>(canvasWidth/2-165);
-  const [labelColor, setLabelColor] = useState<color>({r:1,g:1,b:1})
-  
+  const [label, setLabel] = useState<string>("#HIRING");
+  const [donutColor, setDonutColor] = useState<string>("#794bc4");
+  const [innerRadius, setInnerRadius] = useState<number>(canvasWidth / 2 - 175);
+  const [labelColor, setLabelColor] = useState<string>("#FFFFFF");
+  const [angle, setAngle] = useState<number>(-0.45);
+
   return (
     <BadgeForgeContext.Provider
       value={{
@@ -62,7 +58,9 @@ export const BadgeForgeContextProvider = ({
         label,
         setLabel,
         labelColor,
-        setLabelColor
+        setLabelColor,
+        angle,
+        setAngle,
       }}
     >
       {children}
