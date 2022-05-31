@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import styled from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 
 export const RenderButton = () => {
@@ -16,5 +15,3 @@ export const RenderButton = () => {
 
   return <button onClick={handleClick}>Download Image</button>;
 };
-
-

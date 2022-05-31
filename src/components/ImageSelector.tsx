@@ -1,5 +1,4 @@
 import { ChangeEvent, useContext } from "react";
-import styled from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 
 export const ImageSelector = () => {
@@ -16,19 +15,10 @@ export const ImageSelector = () => {
   };
 
   return (
-    <CircleUpload
+    <input
       type="file"
       accept="image/*;capture=camera"
       onChange={handleChange}
     />
   );
 };
-
-const CircleUpload = styled.input`
-  /* border: solid 5px white;
-  border-radius: 50%;
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16);
-  box-sizing: border-box;
-  width: 200px;
-  height: 200px; */
-`
