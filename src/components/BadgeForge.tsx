@@ -8,7 +8,9 @@ import { ImageSelector } from "./ImageSelector";
 import { RenderButton } from "./RenderButton";
 import { TextLabel } from "./TextLabel";
 import { AngleSelector } from "./AngleSelector";
-import { DonutColorSelector, LabelColorSelector } from "./ColorSelector";
+import { ColorSwatches, DonutColorSelector, LabelColorSelector } from "./ColorSelector";
+import { HoverArea } from "./HoverArea";
+import { ParamWrapper, Wizard, WizardWrapper } from "./Containers";
 import placeholder from "../static/images/placeholder.svg";
 
 const useDrawBadge = () => {
@@ -69,14 +71,20 @@ export const BadgeForge = () => {
   useDrawBadge();
 
   return (
-    <>
-      <ImageSelector />
-      <TextLabel />
-      <AngleSelector />
-      <LabelColorSelector />
-      <DonutColorSelector />
-      <Canvas />
-      <RenderButton />
-    </>
+    <WizardWrapper>
+      <Wizard>
+        <ParamWrapper>
+        <TextLabel />
+        <AngleSelector />
+        <ColorSwatches/>
+        </ParamWrapper>
+        <RenderButton />
+      </Wizard>
+      <Canvas>
+          <HoverArea>
+            <ImageSelector />
+          </HoverArea>
+        </Canvas>
+    </WizardWrapper>
   );
 };
