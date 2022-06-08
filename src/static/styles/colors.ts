@@ -1,8 +1,8 @@
 const light = {
-  text: "black",
+  text: "#444444",
   appBg: "#F5F5F5",
   wizardBg: "#FFFFFF",
-  wizardBd: "#D7D7D2",
+  wizardBd: "#0000001D",
   canvasBg: "#F2F2F2",
   canvasBd: "#FFFFFF",
   panelBg: "#999",
@@ -18,7 +18,15 @@ const light = {
   donutGREEN: "#488546",
   donutBLUE: "#3262AB",
   iconStroke: "#444444",
-  iconDivFill: "#0000000E"
+  iconDivFill: "#0000000E",
+  danger: "#fea025",
+  title: "black",
+  subTitle: "black",
+  buttonLabel: "white",
+  buttonLabelShadow: "#0000005F",
+  buttonBg: "#000000C0",
+  buttonBd: "#000000A0",
+  placeholder: "#00000070"
 };
 
 const dark = {

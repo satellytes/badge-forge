@@ -1,30 +1,46 @@
-import { ChangeEvent, useContext } from "react";
+import { ChangeEvent, useContext, useEffect } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { light } from "../static/styles/colors";
 import { ColDiv, RowDiv, ParamLabelWrapper, IconDiv } from "./Containers";
-import { FiHash,FiAlertTriangle } from "react-icons/fi";
+import { FiHash, FiAlertTriangle } from "react-icons/fi";
 import styled from "styled-components";
+
+let isAlert = false;
 
 export const TextLabel = () => {
   const { label, setLabel } = useContext(BadgeForgeContext);
-  let isAlert = false;
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const validLength = e?.target.value.length <= 15;
     if (validLength) {
+      isAlert = false;
       setLabel(e?.target.value);
-    } else {
+    }
+    if (e?.target.value.length >= 15) {
       isAlert = true;
     }
-    
-  };
 
+  };
 
   return (
     <ColDiv>
-    <ParamLabelWrapper>Enter your label text:</ParamLabelWrapper>
+      <ParamLabelWrapper>Enter your label text:</ParamLabelWrapper>
       <RowDiv>
-      {isAlert ? <IconDiv><FiAlertTriangle/></IconDiv>:<IconDiv><FiHash/></IconDiv>}
-      <LabelInput type="text" value={label} placeholder="enter max. 15 characters" onChange={handleChange} />
+        {isAlert ? (
+          <IconDiv>
+            <FiAlertTriangle style={{stroke: light.danger}}/>
+          </IconDiv>
+        ) : (
+          <IconDiv>
+            <FiHash />
+          </IconDiv>
+        )}
+        <LabelInput
+          type="text"
+          value={label}
+          placeholder="max. 15 characters"
+          onChange={handleChange}
+          maxLength={15}
+        />
       </RowDiv>
     </ColDiv>
   );
@@ -39,4 +55,7 @@ const LabelInput = styled.input`
   border-radius: var(--param-border-radius);
   box-shadow: var(--param-shadow);
   width: 350px;
+  &::placeholder {
+    color: ${light.placeholder}
+  }
 `;

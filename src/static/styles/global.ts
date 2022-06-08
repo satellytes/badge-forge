@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { light } from "./colors";
-
 export default createGlobalStyle`
+
 :root {
     //colors
     --text: black;
@@ -29,6 +29,10 @@ export default createGlobalStyle`
     //effects
     --param-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08);
     --param-border-radius: 5px;
+    --button-drop: drop-shadow(0.5px 1px 0px ${light.buttonLabelShadow});
+
+    //transitions
+    --param-grow: transform 120ms ease-in-out;
 }
 
 html, body {
@@ -38,11 +42,9 @@ html, body {
     align-items: center;
     justify-content: center;
 }
+
    *{
-       font-family: "Inter", sans-serif; 
+       font-family: 'Inter', Helvetica, sans-serif; 
    }
-   @font-face {
-       font-family: "Inter";
-       src: url("./static/fonts/inter.woff2") format('font-woff');
-   }
+
 `;

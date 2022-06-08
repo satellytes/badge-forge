@@ -28,7 +28,7 @@ const ColorSelector = ({ label, value, onChange }: ColorSelectorProps) => {
 
   return (
     <label>
-      <ColorSwatchDiv>
+      <ColorSwatchDiv title="Pick color">
         <ColorInput type="color" value={value} onChange={handleChange} />
         <FiCrosshair
           style={{ width: 20, height: 20, stroke: light.iconStroke }}
@@ -97,11 +97,27 @@ const ColorSwatchDiv = styled.div`
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  transition: var(--param-grow);
   cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.95;
+  }
+  &:active {
+    opacity: 0.85;
+  }
 `;
 
 const ColorIcon = ({ parameter }: ColorIconProps) => {
-  return <IconDiv>{parameter === "label" ? <FiType /> : <FiTarget />}</IconDiv>;
+  return (
+    <IconDiv>
+      {parameter === "label" ? (
+        <FiType title="Label color" />
+      ) : (
+        <FiTarget title="Border color" />
+      )}
+    </IconDiv>
+  );
 };
 
 export const ColorSwatches = () => {

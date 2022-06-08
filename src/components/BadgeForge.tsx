@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo } from "react";
+import { useContext, useEffect, useMemo, useRef } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { drawDonut } from "../lib/canvas/drawDonut";
 import { drawImage } from "../lib/canvas/drawImage";
@@ -7,13 +7,31 @@ import { Canvas } from "./Canvas";
 import { ImageSelector } from "./ImageSelector";
 import { RenderButton } from "./RenderButton";
 import { TextLabel } from "./TextLabel";
-import { AngleSelector } from "./AngleSelector";
-import { ColorSwatches, DonutColorSelector, LabelColorSelector } from "./ColorSelector";
+import { RangeSelectors } from "./RangeSelectors";
+import {
+  ColorSwatches,
+  DonutColorSelector,
+  LabelColorSelector,
+} from "./ColorSelector";
 import { HoverArea } from "./HoverArea";
-import { ParamWrapper, Wizard, WizardWrapper } from "./Containers";
+import {
+  ColDiv,
+  ExportWrapper,
+  Instructions,
+  ParamWrapper,
+  SubTitleWrapper,
+  TitleWrapper,
+  Wizard,
+  WizardWrapper,
+} from "./Containers";
 import placeholder from "../static/images/placeholder.svg";
 
 const useDrawBadge = () => {
+ 
+};
+
+export const BadgeForge = () => {
+  useDrawBadge();
   const {
     canvasRef,
     canvasHeight,
@@ -23,20 +41,21 @@ const useDrawBadge = () => {
     angle,
     labelColor,
     donutColor,
-    innerRadius,
+    donutStroke,
   } = useContext(BadgeForgeContext);
 
   const image = new Image();
   image.src = selectedFile ? URL.createObjectURL(selectedFile) : placeholder;
-  const redrawImage = useMemo(() => drawImage, [image]);
+
+  //const imageRef = useRef(image);
 
   useEffect(() => {
     const context = canvasRef.current?.getContext("2d");
     function drawAll() {
       if (context) {
         context.clearRect(0, 0, canvasHeight, canvasWidth);
-        redrawImage(context, image, 0, 0);
-        drawDonut(context, canvasHeight, innerRadius, angle - 0.5, donutColor); // Offset angle by -0.5 since text starts at `angle`
+        drawImage(context, image, 0, 0);
+        drawDonut(context, canvasHeight, donutStroke, angle - 0.5, donutColor); // Offset angle by -0.5 since text starts at `angle`
         drawTextAlongArc(
           context,
           label,
@@ -49,7 +68,6 @@ const useDrawBadge = () => {
         console.log({ context });
       }
     }
-    requestAnimationFrame(drawAll);
 
     /**
      * Draw Image
@@ -60,31 +78,36 @@ const useDrawBadge = () => {
     canvasWidth,
     selectedFile,
     label,
-    innerRadius,
+    donutStroke,
     donutColor,
     angle,
     labelColor,
   ]);
-};
-
-export const BadgeForge = () => {
-  useDrawBadge();
 
   return (
     <WizardWrapper>
       <Wizard>
         <ParamWrapper>
-        <TextLabel />
-        <AngleSelector />
-        <ColorSwatches/>
+          <TitleWrapper>BadgeForge</TitleWrapper>
+          <SubTitleWrapper>
+            Create customized profile pcitures with ease.
+          </SubTitleWrapper>
+          <TextLabel />
+          <ColorSwatches />
+          <RangeSelectors />
         </ParamWrapper>
-        <RenderButton />
+        <ExportWrapper>
+          <ColDiv>
+            <Instructions />
+            <RenderButton />
+          </ColDiv>
+        </ExportWrapper>
       </Wizard>
       <Canvas>
-          <HoverArea>
-            <ImageSelector />
-          </HoverArea>
-        </Canvas>
+        <HoverArea>
+          <ImageSelector />
+        </HoverArea>
+      </Canvas>
     </WizardWrapper>
   );
 };

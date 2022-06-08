@@ -1,6 +1,6 @@
 export const drawTextAlongArc = (
   context: CanvasRenderingContext2D,
-  label: string = "HIRING",
+  label: string = "#HIRING",
   size: number,
   radius: number,
   angle: number,
@@ -13,7 +13,7 @@ export const drawTextAlongArc = (
 
   context.save();
   context.textAlign = "center";
-  context.font = "bold 100px Inter";
+  context.font = "bold 100px Inter, Helvetica, sans-serif";
   context.fillStyle = color;
   context.translate(size / 2, size / 2);
   context.rotate(angle + Math.PI / 2);

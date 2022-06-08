@@ -12,8 +12,19 @@ export const drawImage = (
 
   // crop to circle
   context.beginPath();
-  context.arc(context.canvas.width/2, context.canvas.height/2,context.canvas.width/2,0,Math.PI*2);
+  context.arc(
+    context.canvas.width / 2,
+    context.canvas.height / 2,
+    context.canvas.width / 2 + 5,
+    0,
+    Math.PI * 2
+  );
   context.clip();
+
+  context.save();
+  context.fillStyle = "black";
+  context.fillRect(0, 0, context.canvas.width, context.canvas.height);
+  context.restore();
 
   context.drawImage(
     image,
@@ -22,7 +33,7 @@ export const drawImage = (
     image.width,
     image.height,
     shiftX,
-    shiftY ,
+    shiftY,
     image.width * ratio,
     image.height * ratio
   );

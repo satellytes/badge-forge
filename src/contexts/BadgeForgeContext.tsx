@@ -8,10 +8,10 @@ interface BadgeForgeContextState {
 
   // Donut properties
   donutColor: string;
-  innerRadius: number;
+  donutStroke: number;
   angle: number;
   setDonutColor: (color: string) => void;
-  setInnerRadius: (radius: number) => void;
+  setDonutStroke: (radius: number) => void;
   setAngle: (angle: number) => void;
 
   // File Image
@@ -39,7 +39,7 @@ export const BadgeForgeContextProvider = ({
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [label, setLabel] = useState<string>("");
   const [donutColor, setDonutColor] = useState<string>("#794bc4");
-  const [innerRadius, setInnerRadius] = useState<number>(canvasWidth / 2 - 175);
+  const [donutStroke, setDonutStroke] = useState<number>(175);
   const [labelColor, setLabelColor] = useState<string>("#FFFFFF");
   const [angle, setAngle] = useState<number>(-0.45);
 
@@ -50,9 +50,9 @@ export const BadgeForgeContextProvider = ({
         canvasHeight,
         canvasWidth,
         donutColor,
-        innerRadius,
+        donutStroke,
         setDonutColor,
-        setInnerRadius,
+        setDonutStroke,
         selectedFile,
         setSelectedFile,
         label,

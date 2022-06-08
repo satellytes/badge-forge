@@ -10,10 +10,6 @@ export const ImageSelector = () => {
   const { setSelectedFile } = useContext(BadgeForgeContext);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    // if (event.target.files && event.target.files.length > 0) {
-    //   const img = new Image();
-    //   img.src = URL.createObjectURL(event.target.files[0]);
-    // }
     if (event.target.files && event.target.files.length > 0) {
       setSelectedFile(event.target.files[0]);
     }
@@ -47,7 +43,6 @@ const CircleUpload = styled.label`
   background-color: ${light.uploadColor};
   display: none;
   cursor: pointer;
-  font-family: Inter;
   font-weight: 600;
   color: ${light.text};
   padding-top: 46px;
