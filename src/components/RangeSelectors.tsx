@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, ReactElement, useContext } from "react";
+import { ChangeEvent, useContext } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import styled from "styled-components";
 import { ColDiv, ParamLabelWrapper, RowDiv, IconDiv } from "./Containers";
@@ -16,7 +16,7 @@ const StrokeSelector = () => {
       min="0"
       max="512"
       value={donutStroke}
-      step={20}
+      step={10}
       onChange={handleValueChange}
     />
   );

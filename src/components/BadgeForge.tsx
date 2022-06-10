@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useRef } from "react";
+import { useContext, useEffect } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { drawDonut } from "../lib/canvas/drawDonut";
 import { drawImage } from "../lib/canvas/drawImage";
@@ -10,8 +10,6 @@ import { TextLabel } from "./TextLabel";
 import { RangeSelectors } from "./RangeSelectors";
 import {
   ColorSwatches,
-  DonutColorSelector,
-  LabelColorSelector,
 } from "./ColorSelector";
 import { HoverArea } from "./HoverArea";
 import {
@@ -26,12 +24,9 @@ import {
 } from "./Containers";
 import placeholder from "../static/images/placeholder.svg";
 
-const useDrawBadge = () => {
- 
-};
+
 
 export const BadgeForge = () => {
-  useDrawBadge();
   const {
     canvasRef,
     canvasHeight,
@@ -43,11 +38,9 @@ export const BadgeForge = () => {
     donutColor,
     donutStroke,
   } = useContext(BadgeForgeContext);
-
+  
   const image = new Image();
   image.src = selectedFile ? URL.createObjectURL(selectedFile) : placeholder;
-
-  //const imageRef = useRef(image);
 
   useEffect(() => {
     const context = canvasRef.current?.getContext("2d");
@@ -82,6 +75,8 @@ export const BadgeForge = () => {
     donutColor,
     angle,
     labelColor,
+    image,
+    canvasRef,
   ]);
 
   return (
@@ -90,7 +85,7 @@ export const BadgeForge = () => {
         <ParamWrapper>
           <TitleWrapper>BadgeForge</TitleWrapper>
           <SubTitleWrapper>
-            Create customized profile pcitures with ease.
+            Create customized profile pictures with ease.
           </SubTitleWrapper>
           <TextLabel />
           <ColorSwatches />

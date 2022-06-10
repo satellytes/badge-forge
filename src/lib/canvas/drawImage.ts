@@ -15,7 +15,7 @@ export const drawImage = (
   context.arc(
     context.canvas.width / 2,
     context.canvas.height / 2,
-    context.canvas.width / 2 + 5,
+    context.canvas.width / 2,
     0,
     Math.PI * 2
   );

@@ -12,7 +12,7 @@ export const RenderButton = () => {
     if (canvasRef.current) {
       const anchor = document.createElement("a");
       anchor.href = canvasRef.current.toDataURL("image/png");
-      anchor.download = `badge-${new Date().toISOString()}.png`;
+      anchor.download = `profile-${new Date().toISOString().substring(0, 10)}.png`;
       anchor.click();
     }
   };

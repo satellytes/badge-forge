@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useEffect } from "react";
+import { ChangeEvent, useContext} from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { light } from "../static/styles/colors";
 import { ColDiv, RowDiv, ParamLabelWrapper, IconDiv } from "./Containers";
@@ -40,7 +40,13 @@ export const TextLabel = () => {
           placeholder="max. 15 characters"
           onChange={handleChange}
           maxLength={15}
+          list="templates"
         />
+        <datalist id="templates">
+          <option value="#HIRING"/>
+          <option value="#OPEN FOR WORK"/>
+          <option value="#FREELANCING"/>
+        </datalist>
       </RowDiv>
     </ColDiv>
   );

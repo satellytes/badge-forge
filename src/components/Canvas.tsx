@@ -36,5 +36,5 @@ const CircleCanvas = styled.canvas`
   width: 200px;
   height: 200px;
   z-index: 0;
-  font-family: Inter, sans-serif;
+  font-family: 'Inter', Helvetica, sans-serif;
 `;

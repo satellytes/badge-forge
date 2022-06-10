@@ -1,4 +1,3 @@
-import { ReactElement } from "react";
 import { light } from "../static/styles/colors";
 import styled from "styled-components";
 import { ReactComponent as InstructionSource } from "../static/images/instructions.svg";
