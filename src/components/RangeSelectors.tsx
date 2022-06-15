@@ -47,11 +47,11 @@ export const RangeSelectors = () => {
       </ParamLabelWrapper>
       <RowDiv>
         <IconDiv>
-          <FiRefreshCw/>
+          <FiRefreshCw />
         </IconDiv>
         <AngleSelector />
-        <IconDiv style ={{marginLeft: 5}}>
-          <FiDisc/>
+        <IconDiv style={{ marginLeft: 5 }}>
+          <FiDisc />
         </IconDiv>
         <StrokeSelector />
       </RowDiv>

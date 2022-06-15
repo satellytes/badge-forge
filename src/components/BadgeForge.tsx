@@ -2,15 +2,13 @@ import { useContext, useEffect } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { drawDonut } from "../lib/canvas/drawDonut";
 import { drawImage } from "../lib/canvas/drawImage";
-import { drawTextAlongArc } from "../lib/canvas/drawTextAlongArc";
+import { drawLabel } from "../lib/canvas/drawLabel";
 import { Canvas } from "./Canvas";
 import { ImageSelector } from "./ImageSelector";
 import { RenderButton } from "./RenderButton";
 import { TextLabel } from "./TextLabel";
 import { RangeSelectors } from "./RangeSelectors";
-import {
-  ColorSwatches,
-} from "./ColorSelector";
+import { ColorSwatches } from "./ColorSelector";
 import { HoverArea } from "./HoverArea";
 import {
   ColDiv,
@@ -24,8 +22,6 @@ import {
 } from "./Containers";
 import placeholder from "../static/images/placeholder.svg";
 
-
-
 export const BadgeForge = () => {
   const {
     canvasRef,
@@ -38,7 +34,7 @@ export const BadgeForge = () => {
     donutColor,
     donutStroke,
   } = useContext(BadgeForgeContext);
-  
+
   const image = new Image();
   image.src = selectedFile ? URL.createObjectURL(selectedFile) : placeholder;
 
@@ -49,7 +45,7 @@ export const BadgeForge = () => {
         context.clearRect(0, 0, canvasHeight, canvasWidth);
         drawImage(context, image, 0, 0);
         drawDonut(context, canvasHeight, donutStroke, angle - 0.5, donutColor); // Offset angle by -0.5 since text starts at `angle`
-        drawTextAlongArc(
+        drawLabel(
           context,
           label,
           canvasWidth,

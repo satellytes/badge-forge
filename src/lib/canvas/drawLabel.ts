@@ -1,4 +1,4 @@
-export const drawTextAlongArc = (
+export const drawLabel = (
   context: CanvasRenderingContext2D,
   label: string = "#HIRING",
   size: number,
@@ -7,6 +7,7 @@ export const drawTextAlongArc = (
   color: string
 ) => {
   label = label.length === 0 ? "#HIRING" : label;
+
   var len = label.length,
     s,
     letterAngle;

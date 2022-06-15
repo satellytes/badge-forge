@@ -1,4 +1,4 @@
-import { DragEvent, MouseEvent, ReactElement} from "react";
+import { DragEvent, MouseEvent, ReactElement } from "react";
 import styled from "styled-components";
 
 type Props = {
@@ -6,20 +6,24 @@ type Props = {
 };
 
 function revealArea(e: DragEvent | MouseEvent) {
-    e.preventDefault();
-    const target = e.target as HTMLDivElement;
-    const child = target.firstChild as HTMLLabelElement;
-    if (child) child.style.display = "block";
-  }
-  function concealArea(e: DragEvent | MouseEvent) {
-    e.preventDefault();
-    const target = e.target as HTMLDivElement;
-    const child = target.firstChild as HTMLLabelElement;
-    if (child) child.style.display = "none";
-  }
+  e.preventDefault();
+  const target = e.target as HTMLDivElement;
+  const child = target.firstChild as HTMLLabelElement;
+  console.log(child);
+  if (child) child.style.display = "block";
+  // if (child) child.style.visibility = "visible";
+}
 
 export const HoverArea = ({ children }: Props) => {
-  return <HoverDiv onMouseOver={revealArea} onMouseOut={concealArea} onDragEnter={revealArea} onDragOver={revealArea}>{children}</HoverDiv>;
+  return (
+    <HoverDiv
+      onMouseOver={revealArea}
+      onDragEnter={revealArea}
+      onDragOver={revealArea}
+    >
+      {children}
+    </HoverDiv>
+  );
 };
 
 const HoverDiv = styled.div`
@@ -30,9 +34,4 @@ const HoverDiv = styled.div`
   width: 200px;
   height: 200px;
   z-index: 1;
-  &:hover > * {
-    display: block;
-  }
 `;
-
-

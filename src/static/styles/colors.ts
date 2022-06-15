@@ -19,7 +19,7 @@ const light = {
   donutBLUE: "#3262AB",
   iconStroke: "#444444",
   iconDivFill: "#0000000E",
-  danger: "#fea025",
+  danger: "#ff8c00",
   title: "black",
   subTitle: "black",
   buttonLabel: "white",
@@ -30,7 +30,7 @@ const light = {
 };
 
 const dark = {
-  text: "black",
+  text: "white",
   bg: "#ccc",
   canvasBg: "#666",
   panelBg: "#999",

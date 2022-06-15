@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext} from "react";
+import { ChangeEvent, useContext } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { light } from "../static/styles/colors";
 import { ColDiv, RowDiv, ParamLabelWrapper, IconDiv } from "./Containers";
@@ -18,7 +18,6 @@ export const TextLabel = () => {
     if (e?.target.value.length >= 15) {
       isAlert = true;
     }
-
   };
 
   return (
@@ -27,7 +26,7 @@ export const TextLabel = () => {
       <RowDiv>
         {isAlert ? (
           <IconDiv>
-            <FiAlertTriangle style={{stroke: light.danger}}/>
+            <FiAlertTriangle style={{ stroke: light.danger }} />
           </IconDiv>
         ) : (
           <IconDiv>
@@ -43,9 +42,9 @@ export const TextLabel = () => {
           list="templates"
         />
         <datalist id="templates">
-          <option value="#HIRING"/>
-          <option value="#OPEN FOR WORK"/>
-          <option value="#FREELANCING"/>
+          <option value="#HIRING" />
+          <option value="#OPEN FOR WORK" />
+          <option value="#FREELANCING" />
         </datalist>
       </RowDiv>
     </ColDiv>
@@ -62,6 +61,6 @@ const LabelInput = styled.input`
   box-shadow: var(--param-shadow);
   width: 350px;
   &::placeholder {
-    color: ${light.placeholder}
+    color: ${light.placeholder};
   }
 `;

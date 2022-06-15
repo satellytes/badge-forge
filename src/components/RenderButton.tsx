@@ -12,15 +12,17 @@ export const RenderButton = () => {
     if (canvasRef.current) {
       const anchor = document.createElement("a");
       anchor.href = canvasRef.current.toDataURL("image/png");
-      anchor.download = `profile-${new Date().toISOString().substring(0, 10)}.png`;
+      anchor.download = `profile-${new Date()
+        .toISOString()
+        .substring(0, 10)}.png`;
       anchor.click();
     }
   };
 
   return (
-    <Button onClick={handleClick}>
+    <Button onClick={handleClick} title="Download as PNG file">
       <ButtonIcon>
-        <FiDownload></FiDownload>
+        <FiDownload />
       </ButtonIcon>
       <span>SAVE IMAGE</span>
     </Button>

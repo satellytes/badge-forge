@@ -20,10 +20,10 @@ export const Canvas = ({ children }: Props) => {
 };
 
 const CanvasWrapper = styled.div`
-position: absolute;
-left: 155px;
-top: -320px;
-`
+  position: absolute;
+  left: 155px;
+  top: -320px;
+`;
 
 const CircleCanvas = styled.canvas`
   position: absolute;
@@ -36,5 +36,5 @@ const CircleCanvas = styled.canvas`
   width: 200px;
   height: 200px;
   z-index: 0;
-  font-family: 'Inter', Helvetica, sans-serif;
+  font-family: "Inter", Helvetica, sans-serif;
 `;

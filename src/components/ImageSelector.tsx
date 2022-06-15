@@ -1,7 +1,7 @@
 import { ChangeEvent, useContext, DragEvent, MouseEvent } from "react";
 import styled from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
-import { light } from "../static/styles/colors";
+import { dark, light } from "../static/styles/colors";
 import { FiUpload } from "react-icons/fi";
 
 export const ImageSelector = () => {
@@ -13,16 +13,12 @@ export const ImageSelector = () => {
     }
   };
 
-  function revealArea(e: DragEvent | MouseEvent) {
+  function concealArea(e: DragEvent | MouseEvent) {
     e.preventDefault();
     const target = e.target as HTMLLabelElement;
-    target.style.display = "block";
-  }
-
-  function concealArea(e: DragEvent| MouseEvent) {
-    e.preventDefault();
-    const target = e.target as HTMLLabelElement;
+    console.log(target);
     target.style.display = "none";
+    // target.style.visibility = "hidden";
   }
 
   function handleDrop(e: DragEvent) {
@@ -32,18 +28,25 @@ export const ImageSelector = () => {
   }
 
   return (
-    <CircleUpload onMouseOver={revealArea} onMouseOut={concealArea} onDragLeave={concealArea} onDrop={handleDrop}>
+    <CircleUpload
+      title="upload an image file"
+      onMouseOut={concealArea}
+      onDragLeave={concealArea}
+      onDrop={handleDrop}
+    >
       <div>
         <FiUpload
           style={{
             fill: "none",
-            width: 50,
-            height: 50,
-            stroke: light.iconStroke,
+            width: 45,
+            height: 45,
+            stroke: dark.text,
           }}
         />
       </div>
-      {selectedFile ? "CHANGE" : "UPLOAD"} <br /> IMAGE
+      <div>
+        {selectedFile ? "CHANGE" : "UPLOAD"} <br /> IMAGE
+      </div>
       <input
         type="file"
         accept="image/*;capture=camera"
@@ -55,25 +58,30 @@ export const ImageSelector = () => {
 
 const CircleUpload = styled.label`
   display: none;
+  // visibility: hidden;
   border: solid 5px white;
   border-radius: 50%;
   box-sizing: border-box;
   width: 200px;
   height: 200px;
-  background-color: ${light.uploadColor};
+  //background-color: ${light.uploadColor};
+  backdrop-filter: blur(25px) brightness(0.7);
+  //opacity: 0.95;
   cursor: pointer;
   font-weight: 600;
-  color: ${light.text};
-  padding-top: 46px;
+  font-size: 17px;
+  color: ${light.buttonLabel};
+  padding-top: 45px;
   transition: border 0.2s ease-in-out;
   z-index: 2;
-  div {
-    display: block;
+  & * {
+    pointer-events: none;
+    //filter: var(--button-drop);
   }
-  input {
+  & input {
     display: none;
   }
   &:hover {
-    border: solid 9px white;
+    border: solid 10px white;
   }
 `;
