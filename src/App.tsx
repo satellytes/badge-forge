@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import { BadgeForge } from "./components/BadgeForge";
 import { BadgeForgeContextProvider } from "./contexts/BadgeForgeContext";
-import GlobalStyle from "./static/styles/global";
+import GlobalStyle from "./theme/globalStyle";
 import { Theme } from "./theme/theme";
 
 function App() {
