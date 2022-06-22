@@ -1,12 +1,16 @@
 import userEvent from "@testing-library/user-event";
 import { BadgeForgeContextProvider } from "../contexts/BadgeForgeContext";
 import { ImageSelector } from "./ImageSelector";
-import { render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import { ThemeProvider } from "styled-components";
+import { Theme } from "../theme/theme";
 
 const customRender = () =>
   render(
     <BadgeForgeContextProvider>
-      <ImageSelector />
+      <ThemeProvider theme={Theme}>
+        <ImageSelector />
+      </ThemeProvider>
     </BadgeForgeContextProvider>
   );
 
@@ -17,7 +21,6 @@ describe("ImageSelector", () => {
     let imageUpload = screen.getByLabelText("imageupload") as HTMLInputElement;
     const file = new File(["0"], "test.png", { type: "image/png" });
     await userEvent.upload(uploadArea, file);
-    console.log(imageUpload);
     expect(imageUpload.files).toBeDefined();
     expect(imageUpload.files).toHaveLength(1);
     expect(imageUpload.files?.item(0)).toBe(file);

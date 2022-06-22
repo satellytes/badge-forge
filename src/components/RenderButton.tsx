@@ -29,15 +29,15 @@ export const RenderButton = () => {
 };
 
 const Button = styled.button`
-  color: ${({theme}) => theme.colors.gray50};
+  color: ${({ theme }) => theme.colors.gray50};
   font-size: 17px;
   font-weight: 500;
   height: calc(var(--param-height) * 1.5);
   width: 200px;
   box-sizing: border-box;
   border-radius: var(--param-border-radius);
-  background-color: ${({theme}) => theme.colors.gray700};
-  border: solid 2px ${({theme}) => theme.colors.gray800};
+  background-color: ${({ theme }) => theme.colors.gray700};
+  border: solid 2px ${({ theme }) => theme.colors.gray800};
   box-shadow: var(--param-shadow);
   transition: var(--param-grow);
   cursor: pointer;

@@ -5,8 +5,6 @@ export const drawDonut = (
   angle: number,
   color: string
 ) => {
-
-  //var gradient = context.createLinearGradient(size/2, size/2, size/2+Math.cos(rot)*size, size/2+Math.sin(rot)*size);
   var gradient = context.createLinearGradient(0, 0, size, 0);
   gradient.addColorStop(0, `${color}FF`);
   gradient.addColorStop(0.6, `${color}09`);

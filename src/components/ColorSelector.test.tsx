@@ -1,12 +1,16 @@
 import { DonutColorSelector, LabelColorSelector } from "./ColorSelector";
 import { BadgeForgeContextProvider } from "../contexts/BadgeForgeContext";
 import { fireEvent, render, screen } from "@testing-library/react";
+import { ThemeProvider } from "styled-components";
+import { Theme } from "../theme/theme";
 
 describe("LabelColorSelector", () => {
   it("should change the label color", () => {
     render(
       <BadgeForgeContextProvider>
-        <LabelColorSelector/>
+        <ThemeProvider theme={Theme}>
+          <LabelColorSelector />
+        </ThemeProvider>
       </BadgeForgeContextProvider>
     );
     const color = "#111111";
@@ -20,7 +24,9 @@ describe("DonutColorSelector", () => {
   it("should change the label color", () => {
     render(
       <BadgeForgeContextProvider>
-        <DonutColorSelector/>
+        <ThemeProvider theme={Theme}>
+          <DonutColorSelector />
+        </ThemeProvider>
       </BadgeForgeContextProvider>
     );
     const color = "#111111";

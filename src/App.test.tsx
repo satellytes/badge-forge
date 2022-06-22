@@ -1,12 +1,11 @@
-import App from "./App";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { BadgeForgeContextProvider } from "./contexts/BadgeForgeContext";
+import App from "./App";
 
-jest.mock("./contexts/BadgeForgeContext", () => {
-    return {BadgeForgeContextProvider: jest.fn(()=>null)}
-})
+test("App renders without failure", () => {
+  render(<App />);
+  const headline = screen.getByText(
+    "Create customized profile pictures with ease."
+  );
 
-test("App renders without failure", ()=> {
-    render(<App/>);
-})
+  expect(headline).toBeInTheDocument();
+});

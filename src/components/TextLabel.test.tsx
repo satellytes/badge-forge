@@ -1,15 +1,19 @@
 import { TextLabel } from "./TextLabel";
 import { BadgeForgeContextProvider } from "../contexts/BadgeForgeContext";
 import { fireEvent, render, screen } from "@testing-library/react";
+import { ThemeProvider } from "styled-components";
+import { Theme } from "../theme/theme";
 
 const customRender = () =>
   render(
-    <BadgeForgeContextProvider>
-      <TextLabel />
-    </BadgeForgeContextProvider>
+    <ThemeProvider theme={Theme}>
+      <BadgeForgeContextProvider>
+        <TextLabel />
+      </BadgeForgeContextProvider>
+    </ThemeProvider>
   );
 
-describe("TestLabel", () => {
+describe("TextLabel", () => {
   it("should change value", () => {
     const expectedValue = "hiring";
 

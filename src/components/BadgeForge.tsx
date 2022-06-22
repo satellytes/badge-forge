@@ -49,12 +49,10 @@ export const BadgeForge = () => {
           context,
           label,
           canvasWidth,
-          -(canvasWidth / 2 - 0.05*canvasWidth),
+          -(canvasWidth / 2 - 0.05 * canvasWidth),
           angle,
           labelColor
         );
-      } else {
-        console.log({ context });
       }
     }
 

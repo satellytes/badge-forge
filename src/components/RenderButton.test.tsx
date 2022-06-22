@@ -1,18 +1,20 @@
-import { RenderButton } from "../components/RenderButton";
-import { screen, render, cleanup } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
+import { ThemeProvider } from "styled-components";
 import { Canvas } from "../components/Canvas";
-import userEvent from "@testing-library/user-event";
-import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
+import { RenderButton } from "../components/RenderButton";
+import { Theme } from "../theme/theme";
 
 const createEnv = () =>
   render(
     <>
-    <Canvas/>
-    <RenderButton/>
+      <Canvas />
+      <ThemeProvider theme={Theme}>
+        <RenderButton />
+      </ThemeProvider>
     </>
   );
 
-  afterEach(cleanup);
+afterEach(cleanup);
 
 describe("downloadImage", () => {
   it("should download the image file", () => {

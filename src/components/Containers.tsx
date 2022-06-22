@@ -63,10 +63,8 @@ export const Instructions = () => {
   );
 };
 const InstructionDiv = styled.div`
+  width: 180px;
   padding-bottom: 50px;
-  & > * {
-    width: 180px;
-  }
 `;
 
 export const ExportWrapper = styled.div`

@@ -12,8 +12,8 @@ export const Canvas = ({ children }: Props) => {
   return (
     <CanvasWrapper>
       {children}
-      <div style={{ fontFamily: "Inter" }}> </div>
       {/** used to pre-load the font before drawing*/}
+      <div style={{ fontFamily: "Inter" }}> </div>
       <CircleCanvas ref={canvasRef} width={canvasWidth} height={canvasHeight} />
     </CanvasWrapper>
   );

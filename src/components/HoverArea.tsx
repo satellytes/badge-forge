@@ -9,13 +9,13 @@ function revealArea(e: DragEvent | MouseEvent) {
   e.preventDefault();
   const target = e.target as HTMLDivElement;
   const child = target.firstChild as HTMLLabelElement;
-  console.log(child);
   if (child) child.style.display = "block";
 }
 
 export const HoverArea = ({ children }: Props) => {
   return (
-    <HoverDiv aria-label="hoverable"
+    <HoverDiv
+      aria-label="hoverable"
       onMouseOver={revealArea}
       onDragEnter={revealArea}
       onDragOver={revealArea}

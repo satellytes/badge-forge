@@ -16,7 +16,6 @@ export const ImageSelector = () => {
   function concealArea(e: DragEvent | MouseEvent) {
     e.preventDefault();
     const target = e.target as HTMLLabelElement;
-    console.log(target);
     target.style.display = "none";
   }
 
@@ -68,7 +67,7 @@ const CircleUpload = styled.label`
   cursor: pointer;
   font-weight: 600;
   font-size: 17px;
-  color: ${({theme}) => theme.colors.gray50};
+  color: ${({ theme }) => theme.colors.gray50};
   padding-top: 45px;
   transition: border 0.2s ease-in-out;
   z-index: 2;

@@ -1,13 +1,17 @@
 import { HoverArea } from "./HoverArea";
 import { ImageSelector } from "./ImageSelector";
 import { render, screen, fireEvent } from "@testing-library/react";
+import { ThemeProvider } from "styled-components";
+import { Theme } from "../theme/theme";
 
 describe("HoverArea", () => {
   it("should reveal and conceal the image upload on hover and unhover, resp.", () => {
     render(
-      <HoverArea>
-        <ImageSelector />
-      </HoverArea>
+      <ThemeProvider theme={Theme}>
+        <HoverArea>
+          <ImageSelector />
+        </HoverArea>
+      </ThemeProvider>
     );
     let hoverArea = screen.getByLabelText("hoverable");
     let uploadArea = screen.getByTitle("upload an image file");
@@ -20,9 +24,11 @@ describe("HoverArea", () => {
 
   it("should reveal and conceal the image upload on dragEnter and dragEnd, resp.", () => {
     render(
-      <HoverArea>
-        <ImageSelector />
-      </HoverArea>
+      <ThemeProvider theme={Theme}>
+        <HoverArea>
+          <ImageSelector />
+        </HoverArea>
+      </ThemeProvider>
     );
     let hoverArea = screen.getByLabelText("hoverable");
     let uploadArea = screen.getByTitle("upload an image file");

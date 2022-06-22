@@ -1,11 +1,16 @@
 interface iconProps {
-  size: number, 
-  fill: string, 
-  strokeColor: string, 
-  strokeWidth: number
+  size: number;
+  fill: string;
+  strokeColor: string;
+  strokeWidth: number;
 }
 
-const Upload = ({size, fill = "none", strokeColor = "black", strokeWidth = 2}:iconProps) => {
+const Upload = ({
+  size,
+  fill = "none",
+  strokeColor = "black",
+  strokeWidth = 2,
+}: iconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

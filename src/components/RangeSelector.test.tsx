@@ -1,11 +1,15 @@
 import { render, cleanup, screen, fireEvent } from "@testing-library/react";
+import { ThemeProvider } from "styled-components";
 import { RangeSelectors } from "../components/RangeSelectors";
 import { BadgeForgeContextProvider } from "../contexts/BadgeForgeContext";
+import { Theme } from "../theme/theme";
 
 const customRender = () =>
   render(
     <BadgeForgeContextProvider>
-      <RangeSelectors />
+      <ThemeProvider theme={Theme}>
+        <RangeSelectors />
+      </ThemeProvider>
     </BadgeForgeContextProvider>
   );
 
@@ -25,8 +29,8 @@ describe("WidthSelector", () => {
   it("should change the donut border width", () => {
     customRender();
     const widthSlider = screen.getAllByRole("slider")[1] as HTMLInputElement;
-    const width= "20";
-    fireEvent.change(widthSlider, { target: { value: width} });
+    const width = "20";
+    fireEvent.change(widthSlider, { target: { value: width } });
     expect(widthSlider.value).toBe(width);
   });
 });
