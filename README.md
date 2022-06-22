@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+<p align="center">
+  <h1 align="center">Badge Forge</h1>
+  <p align="center">A badge generator  written in TypeScript using React.js</p>
+   <p align="center">
+    <a href="https://jolly-griffin-c4897b.netlify.app">
+      <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fjolly-griffin-c4897b.netlify.app/">
+    </a>
+    <a href="https://github.com/prettier/prettier">
+      <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square" />
+    </a>
+  </p>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+![BadgeForge](https://user-images.githubusercontent.com/104005017/175064215-16be718b-31ae-412d-a10c-ba651f646ba0.gif)
 
-### `npm start`
+## Project setup
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You need Node > 16 installed on your system.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Then you can use the following commands to start development:
 
-### `npm test`
+```bash
+# install dependencies
+npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# start local dev server
+npm start dev
 
-### `npm run build`
+# create a production build
+npm run build
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# serve production build
+npx serve build
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+We use [Netlify](https://netlify.com) for our deployments.
