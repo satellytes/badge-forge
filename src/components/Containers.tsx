@@ -1,4 +1,3 @@
-import { light } from "../static/styles/colors";
 import styled from "styled-components";
 import { ReactComponent as InstructionSource } from "../static/images/instructions.svg";
 
@@ -11,20 +10,15 @@ export const Wizard = ({ children }: Props) => {
 };
 
 const WizardDiv = styled.div`
-  --width: 800px;
-  --height: 500px;
-  position: absolute;
-  top: calc(var(--height) / 2 * (-1));
-  left: calc(var(--width) / 2 * (-1));
-  width: var(--width);
-  height: var(--height);
+  position: relative;
+  width: 800px;
+  height: 500px;
   padding: 45px;
   box-sizing: border-box;
-  background-color: ${light.wizardBg};
-  border: solid 2px ${light.wizardBd};
+  background-color: ${({ theme }) => theme.colors.gray50};
+  border: solid 2px ${({ theme }) => theme.colors.gray100};
   border-radius: 10px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.08);
-  z-index: -1;
   // concerning children
   display: flex;
   flex-direction: row;
@@ -53,11 +47,11 @@ export const IconDiv = styled.div`
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  background-color: ${light.iconDivFill};
+  background-color: ${({ theme }) => theme.colors.gray75};
   & > * {
     width: 20px;
     height: 20px;
-    stroke: ${light.iconStroke};
+    stroke: ${({ theme }) => theme.colors.gray600};
   }
 `;
 
@@ -90,7 +84,7 @@ export const ButtonIcon = styled.span`
   & > * {
     width: 25px;
     height: 25px;
-    stroke: ${light.buttonLabel};
+    stroke: ${({ theme }) => theme.colors.gray50};
     padding-right: 10px;
   }
 `;
@@ -104,7 +98,7 @@ const ParamWrapperDiv = styled.div`
 `;
 
 export const ParamLabelWrapper = styled.p`
-  color: ${light.text};
+  color: ${({ theme }) => theme.colors.gray500};
   text-align: start;
   padding: 4px 0px;
   margin: 0px;
@@ -112,7 +106,7 @@ export const ParamLabelWrapper = styled.p`
 `;
 
 export const TitleWrapper = styled.p`
-  color: ${light.title};
+  color: ${({ theme }) => theme.colors.gray900};
   text-align: start;
   font-size: 30px;
   font-weight: 700;
@@ -120,7 +114,7 @@ export const TitleWrapper = styled.p`
 `;
 
 export const SubTitleWrapper = styled.p`
-  color: ${light.subTitle};
+  color: ${({ theme }) => theme.colors.gray900};
   text-align: start;
   font-size: 15px;
   font-weight: 600;

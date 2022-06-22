@@ -1,10 +1,10 @@
 import { ChangeEvent, useContext, DragEvent, MouseEvent } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
-import { dark, light } from "../static/styles/colors";
 import { FiUpload } from "react-icons/fi";
 
 export const ImageSelector = () => {
+  const { colors } = useTheme();
   const { selectedFile, setSelectedFile } = useContext(BadgeForgeContext);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +39,7 @@ export const ImageSelector = () => {
             fill: "none",
             width: 45,
             height: 45,
-            stroke: dark.text,
+            stroke: colors.gray50,
           }}
         />
       </div>
@@ -58,26 +58,22 @@ export const ImageSelector = () => {
 
 const CircleUpload = styled.label`
   display: none;
-  // visibility: hidden;
   border: solid 5px white;
   border-radius: 50%;
   box-sizing: border-box;
   width: 200px;
   height: 200px;
   text-align: center;
-  //background-color: ${light.uploadColor};
   backdrop-filter: blur(25px) brightness(0.7);
-  //opacity: 0.95;
   cursor: pointer;
   font-weight: 600;
   font-size: 17px;
-  color: ${light.buttonLabel};
+  color: ${({theme}) => theme.colors.gray50};
   padding-top: 45px;
   transition: border 0.2s ease-in-out;
   z-index: 2;
   & * {
     pointer-events: none;
-    //filter: var(--button-drop);
   }
   & input {
     display: none;

@@ -21,12 +21,13 @@ export const Canvas = ({ children }: Props) => {
 
 const CanvasWrapper = styled.div`
   position: absolute;
-  left: 155px;
-  top: -320px;
+  top: 0;
+  right: 0;
+  transform: translateY(-30%) translateX(-25%);
 `;
 
 const CircleCanvas = styled.canvas`
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   border: solid 5px white;

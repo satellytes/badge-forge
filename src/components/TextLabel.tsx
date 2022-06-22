@@ -1,13 +1,13 @@
 import { ChangeEvent, useContext } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
-import { light } from "../static/styles/colors";
 import { ColDiv, RowDiv, ParamLabelWrapper, IconDiv } from "./Containers";
 import { FiHash, FiAlertTriangle } from "react-icons/fi";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 let isAlert = false;
 
 export const TextLabel = () => {
+  const { colors } = useTheme();
   const { label, setLabel } = useContext(BadgeForgeContext);
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const validLength = e?.target.value.length <= 15;
@@ -26,7 +26,7 @@ export const TextLabel = () => {
       <RowDiv>
         {isAlert ? (
           <IconDiv aria-label="Error">
-            <FiAlertTriangle style={{ stroke: light.danger }} />
+            <FiAlertTriangle style={{ stroke: colors.orange700 }} />
           </IconDiv>
         ) : (
           <IconDiv>
@@ -61,6 +61,7 @@ const LabelInput = styled.input`
   box-shadow: var(--param-shadow);
   width: 350px;
   &::placeholder {
-    color: ${light.placeholder};
+    opacity: 1;
+    color: ${({ theme }) => theme.colors.gray200};
   }
 `;

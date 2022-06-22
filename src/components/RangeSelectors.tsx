@@ -3,10 +3,10 @@ import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import styled from "styled-components";
 import { ColDiv, ParamLabelWrapper, RowDiv, IconDiv } from "./Containers";
 import { FiDisc, FiRefreshCw } from "react-icons/fi";
-import { light } from "../static/styles/colors";
 
 const StrokeSelector = () => {
-  const { donutStroke, setDonutStroke, canvasWidth } = useContext(BadgeForgeContext);
+  const { donutStroke, setDonutStroke, canvasWidth } =
+    useContext(BadgeForgeContext);
   const handleValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     setDonutStroke(parseInt(e.target.value));
   };
@@ -14,7 +14,7 @@ const StrokeSelector = () => {
     <RangeInput
       type="range"
       min="0"
-      max={canvasWidth/2}
+      max={canvasWidth / 2}
       value={donutStroke}
       step={5}
       onChange={handleValueChange}
@@ -72,7 +72,7 @@ const RangeInput = styled.input`
     outline: none;
   }
   &::-webkit-slider-runnable-track {
-    background: ${light.strokeColor};
+    background: ${({ theme }) => theme.colors.gray75};
     border-radius: 5px;
     height: 5px;
     cursor: pointer;
@@ -81,7 +81,7 @@ const RangeInput = styled.input`
     margin-top: -7.5px;
     width: 20px;
     height: 20px;
-    background: ${light.wizardBg};
+    background: ${({ theme }) => theme.colors.gray50};
     border: var(--param-border);
     border-radius: 50%;
     box-shadow: var(--param-shadow);
@@ -90,7 +90,7 @@ const RangeInput = styled.input`
   }
 
   &::-moz-range-track {
-    background: ${light.strokeColor};
+    background: ${({ theme }) => theme.colors.gray75};
     border-radius: 5px;
     height: 5px;
     cursor: pointer;
@@ -98,7 +98,7 @@ const RangeInput = styled.input`
   &::-moz-range-thumb {
     width: 20px;
     height: 20px;
-    background: ${light.wizardBg};
+    background: ${({ theme }) => theme.colors.gray50};
     border: var(--param-border);
     border-radius: 50%;
     box-shadow: var(--param-shadow);
@@ -113,17 +113,17 @@ const RangeInput = styled.input`
     cursor: pointer;
   }
   &::-ms-fill-lower {
-    background: ${light.strokeColor};
+    background: ${({ theme }) => theme.colors.gray75};
     border-radius: 2px;
   }
   &::-ms-fill-upper {
-    background: ${light.strokeColor};
+    background: ${({ theme }) => theme.colors.gray75};
     border-radius: 2px;
   }
   &::-ms-thumb {
     width: 20px;
     height: 20px;
-    background: ${light.wizardBg};
+    background: ${({ theme }) => theme.colors.gray50};
     border: var(--param-border);
     border-radius: 7px;
     cursor: pointer;

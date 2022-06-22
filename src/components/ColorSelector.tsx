@@ -1,7 +1,6 @@
 import { ChangeEvent, useContext } from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
-import { light } from "../static/styles/colors";
 import { ColDiv, RowDiv, ParamLabelWrapper, IconDiv } from "./Containers";
 import { FiCrosshair, FiType, FiTarget } from "react-icons/fi";
 
@@ -22,6 +21,7 @@ interface ColorIconProps {
 }
 
 const ColorSelector = ({ value, onChange }: ColorSelectorProps) => {
+  const { colors } = useTheme();
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
@@ -36,7 +36,7 @@ const ColorSelector = ({ value, onChange }: ColorSelectorProps) => {
           aria-label="colorpicker"
         />
         <FiCrosshair
-          style={{ width: 20, height: 20, stroke: light.iconStroke }}
+          style={{ width: 20, height: 20, stroke: colors.gray500 }}
         />
       </ColorSwatchDiv>
     </label>
@@ -73,11 +73,7 @@ const ColorInput = styled.input`
   padding: 0px;
 `;
 
-const ColorSwatch = ({
-  color,
-  parameter,
-  borderColor = light.swatchBd,
-}: ColorSwatchProps) => {
+const ColorSwatch = ({ color, parameter, borderColor }: ColorSwatchProps) => {
   const { setLabelColor, setDonutColor } = useContext(BadgeForgeContext);
   return parameter === "label" ? (
     <ColorSwatchDiv
@@ -126,6 +122,8 @@ const ColorIcon = ({ parameter }: ColorIconProps) => {
 };
 
 export const ColorSwatches = () => {
+  const { colors } = useTheme();
+
   return (
     <>
       <ColDiv>
@@ -135,19 +133,39 @@ export const ColorSwatches = () => {
         <RowDiv>
           <ColorIcon parameter="label" />
           <ColorSwatch
-            color={light.labelWHITE}
-            borderColor={light.labelBorderWHITE}
+            color={colors.gray50}
+            borderColor={colors.gray100}
             parameter="label"
           />
-          <ColorSwatch color={light.labelBLACK} parameter="label" />
-          <ColorSwatch color={light.labelRED} parameter="label" />
+          <ColorSwatch
+            color={colors.gray900}
+            borderColor={colors.gray400}
+            parameter="label"
+          />
+          <ColorSwatch
+            color={colors.red700}
+            borderColor={colors.red400}
+            parameter="label"
+          />
           <LabelColorSelector />
         </RowDiv>
         <RowDiv>
           <ColorIcon parameter="donut" />
-          <ColorSwatch color={light.donutVIOLET} parameter="donut" />
-          <ColorSwatch color={light.donutGREEN} parameter="donut" />
-          <ColorSwatch color={light.donutBLUE} parameter="donut" />
+          <ColorSwatch
+            color={colors.purple700}
+            borderColor={colors.purple400}
+            parameter="donut"
+          />
+          <ColorSwatch
+            color={colors.green700}
+            borderColor={colors.green400}
+            parameter="donut"
+          />
+          <ColorSwatch
+            color={colors.blue700}
+            borderColor={colors.blue400}
+            parameter="donut"
+          />
           <DonutColorSelector />
         </RowDiv>
       </ColDiv>
