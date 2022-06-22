@@ -25,7 +25,7 @@ export const TextLabel = () => {
       <ParamLabelWrapper>Enter your label text:</ParamLabelWrapper>
       <RowDiv>
         {isAlert ? (
-          <IconDiv>
+          <IconDiv aria-label="Error">
             <FiAlertTriangle style={{ stroke: light.danger }} />
           </IconDiv>
         ) : (

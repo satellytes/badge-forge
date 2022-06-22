@@ -18,7 +18,6 @@ export const ImageSelector = () => {
     const target = e.target as HTMLLabelElement;
     console.log(target);
     target.style.display = "none";
-    // target.style.visibility = "hidden";
   }
 
   function handleDrop(e: DragEvent) {
@@ -51,6 +50,7 @@ export const ImageSelector = () => {
         type="file"
         accept="image/*;capture=camera"
         onChange={handleChange}
+        aria-label="imageupload"
       />
     </CircleUpload>
   );
@@ -64,6 +64,7 @@ const CircleUpload = styled.label`
   box-sizing: border-box;
   width: 200px;
   height: 200px;
+  text-align: center;
   //background-color: ${light.uploadColor};
   backdrop-filter: blur(25px) brightness(0.7);
   //opacity: 0.95;

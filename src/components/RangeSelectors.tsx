@@ -6,7 +6,7 @@ import { FiDisc, FiRefreshCw } from "react-icons/fi";
 import { light } from "../static/styles/colors";
 
 const StrokeSelector = () => {
-  const { donutStroke, setDonutStroke } = useContext(BadgeForgeContext);
+  const { donutStroke, setDonutStroke, canvasWidth } = useContext(BadgeForgeContext);
   const handleValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     setDonutStroke(parseInt(e.target.value));
   };
@@ -14,9 +14,9 @@ const StrokeSelector = () => {
     <RangeInput
       type="range"
       min="0"
-      max="512"
+      max={canvasWidth/2}
       value={donutStroke}
-      step={10}
+      step={5}
       onChange={handleValueChange}
     />
   );

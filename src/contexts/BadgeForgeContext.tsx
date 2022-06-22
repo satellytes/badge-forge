@@ -33,13 +33,13 @@ interface BadgeForgeContextProviderProps {
 export const BadgeForgeContextProvider = ({
   children,
 }: BadgeForgeContextProviderProps) => {
-  const canvasWidth = 1024;
+  const canvasWidth = 512;
   const canvasHeight = canvasWidth;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [label, setLabel] = useState<string>("");
   const [donutColor, setDonutColor] = useState<string>("#794bc4");
-  const [donutStroke, setDonutStroke] = useState<number>(175);
+  const [donutStroke, setDonutStroke] = useState<number>(0.175*canvasWidth);
   const [labelColor, setLabelColor] = useState<string>("#FFFFFF");
   const [angle, setAngle] = useState<number>(-0.45);
 

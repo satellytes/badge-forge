@@ -21,7 +21,7 @@ interface ColorIconProps {
   parameter: "label" | "donut";
 }
 
-const ColorSelector = ({ label, value, onChange }: ColorSelectorProps) => {
+const ColorSelector = ({ value, onChange }: ColorSelectorProps) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
@@ -29,7 +29,12 @@ const ColorSelector = ({ label, value, onChange }: ColorSelectorProps) => {
   return (
     <label>
       <ColorSwatchDiv title="Pick color">
-        <ColorInput type="color" value={value} onChange={handleChange} />
+        <ColorInput
+          type="color"
+          value={value}
+          onChange={handleChange}
+          aria-label="colorpicker"
+        />
         <FiCrosshair
           style={{ width: 20, height: 20, stroke: light.iconStroke }}
         />

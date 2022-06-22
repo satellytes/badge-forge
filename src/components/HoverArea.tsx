@@ -11,12 +11,11 @@ function revealArea(e: DragEvent | MouseEvent) {
   const child = target.firstChild as HTMLLabelElement;
   console.log(child);
   if (child) child.style.display = "block";
-  // if (child) child.style.visibility = "visible";
 }
 
 export const HoverArea = ({ children }: Props) => {
   return (
-    <HoverDiv
+    <HoverDiv aria-label="hoverable"
       onMouseOver={revealArea}
       onDragEnter={revealArea}
       onDragOver={revealArea}

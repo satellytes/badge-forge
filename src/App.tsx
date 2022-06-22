@@ -1,4 +1,3 @@
-import "./App.css";
 import { BadgeForge } from "./components/BadgeForge";
 import { BadgeForgeContextProvider } from "./contexts/BadgeForgeContext";
 import GlobalStyle from "./static/styles/global"
