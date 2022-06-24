@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.25",
-    "cypress": "^10.1.0"
+    "cypress": "^10.1.0",
+    "husky": "^8.0.0"
   }
 }
