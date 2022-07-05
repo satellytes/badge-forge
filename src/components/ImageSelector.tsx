@@ -1,10 +1,10 @@
 import { ChangeEvent, useContext, DragEvent, MouseEvent } from "react";
-import styled, { useTheme } from "styled-components";
+import styled from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
-import { FiUpload } from "react-icons/fi";
+import { ReactComponent as UploadIcon } from "../static/images/icons/Upload.svg";
+import { ButtonIcon } from "./Containers";
 
 export const ImageSelector = () => {
-  const { colors } = useTheme();
   const { selectedFile, setSelectedFile } = useContext(BadgeForgeContext);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -32,19 +32,10 @@ export const ImageSelector = () => {
       onDragLeave={concealArea}
       onDrop={handleDrop}
     >
-      <div>
-        <FiUpload
-          style={{
-            fill: "none",
-            width: 45,
-            height: 45,
-            stroke: colors.gray50,
-          }}
-        />
-      </div>
-      <div>
-        {selectedFile ? "CHANGE" : "UPLOAD"} <br /> IMAGE
-      </div>
+      {selectedFile ? "Change" : "Upload"} image
+      <ButtonIcon>
+        <UploadIcon />
+      </ButtonIcon>
       <input
         type="file"
         accept="image/*;capture=camera"
@@ -55,29 +46,77 @@ export const ImageSelector = () => {
   );
 };
 
+export const Instructions = () => {
+  const { setSelectedFile } = useContext(BadgeForgeContext);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setSelectedFile(event.target.files[0]);
+    }
+  };
+  return (
+    <InstructionDiv>
+      <p>
+        Drop picture above or{" "}
+        <label>
+          browse
+          <input
+            type="file"
+            accept="image/*;capture=camera"
+            onChange={handleChange}
+            aria-label="imageupload"
+            style={{ display: "none" }}
+          />
+        </label>
+      </p>
+    </InstructionDiv>
+  );
+};
+
+const InstructionDiv = styled.div`
+  grid-area: instructions;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  font-size: ${({ theme }) => theme.spacing.s};
+  & label {
+    color: ${({ theme }) => theme.colors.purple400};
+    cursor: pointer;
+  }
+`;
+
 const CircleUpload = styled.label`
   display: none;
   border: solid 5px white;
   border-radius: 50%;
   box-sizing: border-box;
-  width: 200px;
-  height: 200px;
-  text-align: center;
-  backdrop-filter: blur(25px) brightness(0.7);
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  // Firefox fallback for blurred backdrop
+  background-color: ${({ theme }) => theme.colors.purple400};
+
+  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    background-color: transparent;
+    backdrop-filter: blur(25px) brightness(0.7);
+  }
   cursor: pointer;
-  font-weight: 600;
-  font-size: 17px;
+  font-weight: 700;
+  font-size: ${({ theme }) => theme.spacing.s};
   color: ${({ theme }) => theme.colors.gray50};
-  padding-top: 45px;
   transition: border 0.2s ease-in-out;
   z-index: 2;
   & * {
+    color: ${({ theme }) => theme.colors.gray50};
     pointer-events: none;
   }
   & input {
     display: none;
   }
   &:hover {
-    border: solid 10px white;
+    border: solid 12px white;
   }
 `;

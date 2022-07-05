@@ -7,11 +7,11 @@ import { Theme } from "../theme/theme";
 
 const customRender = () =>
   render(
-    <BadgeForgeContextProvider>
-      <ThemeProvider theme={Theme}>
+    <ThemeProvider theme={Theme}>
+      <BadgeForgeContextProvider>
         <ImageSelector />
-      </ThemeProvider>
-    </BadgeForgeContextProvider>
+      </BadgeForgeContextProvider>
+    </ThemeProvider>
   );
 
 describe("ImageSelector", () => {
@@ -29,9 +29,9 @@ describe("ImageSelector", () => {
   it("image file being present changes the label", async () => {
     customRender();
     let uploadArea = screen.getByTitle("upload an image file");
-    expect(uploadArea.innerHTML).toContain("UPLOAD");
+    expect(uploadArea.innerHTML).toContain("Upload");
     const file = new File(["test"], "test.png", { type: "image/png" });
     await userEvent.upload(uploadArea, file);
-    expect(uploadArea.innerHTML).toContain("CHANGE");
+    expect(uploadArea.innerHTML).toContain("Change");
   });
 });

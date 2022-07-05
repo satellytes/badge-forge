@@ -7,11 +7,11 @@ import { Theme } from "../theme/theme";
 describe("LabelColorSelector", () => {
   it("should change the label color", () => {
     render(
-      <BadgeForgeContextProvider>
-        <ThemeProvider theme={Theme}>
+      <ThemeProvider theme={Theme}>
+        <BadgeForgeContextProvider>
           <LabelColorSelector />
-        </ThemeProvider>
-      </BadgeForgeContextProvider>
+        </BadgeForgeContextProvider>
+      </ThemeProvider>
     );
     const color = "#111111";
     const picker = screen.getByLabelText("colorpicker");
@@ -23,11 +23,11 @@ describe("LabelColorSelector", () => {
 describe("DonutColorSelector", () => {
   it("should change the label color", () => {
     render(
-      <BadgeForgeContextProvider>
-        <ThemeProvider theme={Theme}>
+      <ThemeProvider theme={Theme}>
+        <BadgeForgeContextProvider>
           <DonutColorSelector />
-        </ThemeProvider>
-      </BadgeForgeContextProvider>
+        </BadgeForgeContextProvider>
+      </ThemeProvider>
     );
     const color = "#111111";
     const picker = screen.getByLabelText("colorpicker");

@@ -1,8 +1,9 @@
 import { ChangeEvent, useContext } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import styled from "styled-components";
-import { ColDiv, ParamLabelWrapper, RowDiv, IconDiv } from "./Containers";
-import { FiDisc, FiRefreshCw } from "react-icons/fi";
+import { RowDiv, ParamLabelWrapper, ColDiv, IconDiv } from "./Containers";
+import { ReactComponent as PositionIcon } from "../static/images/icons/Rotation.svg";
+import { ReactComponent as BorderIcon } from "../static/images/icons/Border.svg";
 
 const StrokeSelector = () => {
   const { donutStroke, setDonutStroke, canvasWidth } =
@@ -41,27 +42,27 @@ const AngleSelector = () => {
 
 export const RangeSelectors = () => {
   return (
-    <ColDiv>
+    <RowDiv>
       <ParamLabelWrapper>
         Adjust label position and border width:
       </ParamLabelWrapper>
-      <RowDiv>
+      <ColDiv>
         <IconDiv>
-          <FiRefreshCw />
+          <PositionIcon />
         </IconDiv>
         <AngleSelector />
         <IconDiv style={{ marginLeft: 5 }}>
-          <FiDisc />
+          <BorderIcon />
         </IconDiv>
         <StrokeSelector />
-      </RowDiv>
-    </ColDiv>
+      </ColDiv>
+    </RowDiv>
   );
 };
 
 const RangeInput = styled.input`
-  height: var(--param-height);
-  width: 140px;
+  height: ${({ theme }) => theme.dimensions.swatchHeight};
+  width: 100%;
   margin: 0 5px 0 0;
   background: transparent;
   & {
@@ -72,61 +73,77 @@ const RangeInput = styled.input`
     outline: none;
   }
   &::-webkit-slider-runnable-track {
-    background: ${({ theme }) => theme.colors.gray75};
+    background: ${({ theme }) => theme.colors.gray50};
     border-radius: 5px;
     height: 5px;
     cursor: pointer;
   }
   &::-webkit-slider-thumb {
-    margin-top: -7.5px;
-    width: 20px;
-    height: 20px;
-    background: ${({ theme }) => theme.colors.gray50};
-    border: var(--param-border);
+    margin-top: -5.5px;
+    width: 16px;
+    height: 16px;
+    background: ${({ theme }) => theme.colors.purple400};
     border-radius: 50%;
-    box-shadow: var(--param-shadow);
     cursor: pointer;
     -webkit-appearance: none;
+    &:hover {
+      transform: scale(1.05);
+      opacity: 0.95;
+    }
+    &:active {
+      opacity: 0.85;
+    }
   }
 
   &::-moz-range-track {
-    background: ${({ theme }) => theme.colors.gray75};
+    background: ${({ theme }) => theme.colors.gray50};
     border-radius: 5px;
     height: 5px;
     cursor: pointer;
   }
   &::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: ${({ theme }) => theme.colors.gray50};
-    border: var(--param-border);
+    width: 16px;
+    height: 16px;
+    background: ${({ theme }) => theme.colors.purple400};
     border-radius: 50%;
-    box-shadow: var(--param-shadow);
     cursor: pointer;
+    border: none;
+    &:hover {
+      transform: scale(1.05);
+      opacity: 0.95;
+    }
+    &:active {
+      opacity: 0.85;
+    }
   }
   &::-ms-track {
     background: transparent;
     border-color: transparent;
-    border-width: 10px 0;
+
     color: transparent;
     height: 5px;
     cursor: pointer;
   }
   &::-ms-fill-lower {
-    background: ${({ theme }) => theme.colors.gray75};
+    background: ${({ theme }) => theme.colors.gray50};
     border-radius: 2px;
   }
   &::-ms-fill-upper {
-    background: ${({ theme }) => theme.colors.gray75};
+    background: ${({ theme }) => theme.colors.gray50};
     border-radius: 2px;
   }
   &::-ms-thumb {
-    width: 20px;
-    height: 20px;
-    background: ${({ theme }) => theme.colors.gray50};
-    border: var(--param-border);
-    border-radius: 7px;
+    width: 16px;
+    height: 16px;
+    background: ${({ theme }) => theme.colors.purple400};
+    border-radius: 50%;
     cursor: pointer;
-    margin-top: 0px;
+    &:hover {
+      transform: scale(1.05);
+      opacity: 0.95;
+    }
+    &:active {
+      opacity: 0.85;
+    }
   }
 `;

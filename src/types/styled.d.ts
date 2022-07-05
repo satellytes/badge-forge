@@ -5,6 +5,7 @@ declare module "styled-components" {
     colors: {
       // Gray
       gray50: string;
+      gray60: string;
       gray75: string;
       gray100: string;
       gray200: string;
@@ -12,21 +13,22 @@ declare module "styled-components" {
       gray400: string;
       gray500: string;
       gray600: string;
+      gray650: string;
       gray700: string;
       gray800: string;
       gray900: string;
+      grayTrans: string;
 
       // Blue
       blue400: string;
       blue500: string;
       blue600: string;
       blue700: string;
+      darkBlue: string;
 
       // Red
       red400: string;
-      red500: string;
-      red600: string;
-      red700: string;
+      redDanger: string;
 
       // Orange
       orange400: string;
@@ -40,17 +42,43 @@ declare module "styled-components" {
       green600: string;
       green700: string;
 
+      // Turquoise
+      turq400: string;
+
       // Purple
       purple400: string;
-      purple500: string;
-      purple600: string;
-      purple700: string;
     };
 
     spacing: {
+      nxxxs: string;
+      nxxs: string;
+      xxxs: string;
+      xxs: string;
       xs: string;
       s: string;
       m: string;
+      l: string;
+      xl: string;
+      xxl: string;
+      xxxl: string;
+    };
+
+    effects: {
+      boxShadow: string;
+      canvasShadow: string;
+      growTransition: string;
+    };
+
+    dimensions: {
+      boxHeight: string;
+      swatchHeight: string;
+      swatchWidth: string;
+    };
+
+    borders: {
+      alert: string;
+      regular: string;
+      focus: string;
     };
   }
 }

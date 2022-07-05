@@ -9,7 +9,7 @@ function revealArea(e: DragEvent | MouseEvent) {
   e.preventDefault();
   const target = e.target as HTMLDivElement;
   const child = target.firstChild as HTMLLabelElement;
-  if (child) child.style.display = "block";
+  if (child) child.style.display = "flex";
 }
 
 export const HoverArea = ({ children }: Props) => {
@@ -30,7 +30,7 @@ const HoverDiv = styled.div`
   top: 0;
   left: 0;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   z-index: 1;
 `;
