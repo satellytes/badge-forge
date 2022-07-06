@@ -12,7 +12,6 @@ html, body {
 }
 
 * {
-    @import url("../static/fonts/fonts.css"); 
     font-family: 'CocoGothic', 'Inter', Helvetica, sans-serif; 
     position: relative;
     color: ${({ theme }) => theme.colors.darkBlue};

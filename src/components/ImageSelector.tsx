@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, DragEvent, MouseEvent } from "react";
+import { ChangeEvent, useContext, DragEvent } from "react";
 import styled from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { ReactComponent as UploadIcon } from "../static/images/icons/Upload.svg";
@@ -13,25 +13,13 @@ export const ImageSelector = () => {
     }
   };
 
-  function concealArea(e: DragEvent | MouseEvent) {
-    e.preventDefault();
-    const target = e.target as HTMLLabelElement;
-    target.style.display = "none";
-  }
-
   function handleDrop(e: DragEvent) {
     e.preventDefault();
     setSelectedFile(e.dataTransfer.files[0]);
-    concealArea(e);
   }
 
   return (
-    <CircleUpload
-      title="upload an image file"
-      onMouseOut={concealArea}
-      onDragLeave={concealArea}
-      onDrop={handleDrop}
-    >
+    <CircleUpload title="upload an image file" onDrop={handleDrop}>
       {selectedFile ? "Change" : "Upload"} image
       <ButtonIcon>
         <UploadIcon />
@@ -87,7 +75,7 @@ const InstructionDiv = styled.div`
 `;
 
 const CircleUpload = styled.label`
-  display: none;
+  display: flex;
   border: solid 5px white;
   border-radius: 50%;
   box-sizing: border-box;

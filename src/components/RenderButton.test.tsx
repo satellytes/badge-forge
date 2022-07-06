@@ -1,18 +1,4 @@
-import { cleanup, render } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
-import { Canvas } from "../components/Canvas";
-import { RenderButton } from "../components/RenderButton";
-import { Theme } from "../theme/theme";
-
-const createEnv = () =>
-  render(
-    <>
-      <Canvas />
-      <ThemeProvider theme={Theme}>
-        <RenderButton />
-      </ThemeProvider>
-    </>
-  );
+import { cleanup } from "@testing-library/react";
 
 afterEach(cleanup);
 
