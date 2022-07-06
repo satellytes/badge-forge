@@ -1,8 +1,10 @@
 name: 💪 Validate
 on:
   push:
-    branches-ignore:
-      - 'main'
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, edited]
 
 jobs:
   lint:
