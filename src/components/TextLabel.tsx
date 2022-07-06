@@ -1,61 +1,42 @@
-import { ChangeEvent, useContext, MouseEvent, useRef } from "react";
-import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
-import { RowDiv, ParamLabelWrapper } from "./Containers";
+import { ChangeEvent, MouseEvent, useContext, useState } from "react";
 import styled from "styled-components";
-import { ReactComponent as CaretRoundedDown } from "../static/images/icons/caret-rounded-down.svg";
+import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { labelPresets } from "../lib/presets/labelPresets";
+import { ReactComponent as CaretRoundedDown } from "../static/images/icons/caret-rounded-down.svg";
+import { ParamLabelWrapper, RowDiv } from "./Containers";
 
 interface OptionProps {
   option: string;
+  onClick?: () => void;
 }
+
+const DropdownOption = ({ option, onClick }: OptionProps) => {
+  return <OptionDiv onClick={onClick && onClick}>{option}</OptionDiv>;
+};
 
 export const TextLabel = () => {
   const { label, setLabel } = useContext(BadgeForgeContext);
-  const optionsRef = useRef<HTMLDivElement>(null);
-  const arrowRef = useRef<HTMLDivElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const DropdownOption = ({ option }: OptionProps) => {
-    return (
-      <OptionDiv
-        onClick={() => {
-          setLabel(option);
-          (dropdownRef.current as HTMLDivElement).classList.remove("alert");
-        }}
-      >
-        {option}
-      </OptionDiv>
-    );
-  };
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const validLength = e?.target.value.length <= 15;
     if (validLength) {
-      (dropdownRef.current as HTMLDivElement).classList.remove("alert");
       setLabel(e?.target.value);
-    }
-    if (e?.target.value.length >= 15) {
-      (dropdownRef.current as HTMLDivElement).classList.add("alert");
     }
   };
 
-  const toggleOptions = (e: MouseEvent) => {
+  const toggleDropdown = (e: MouseEvent) => {
     e.stopPropagation();
-    if (optionsRef.current && arrowRef.current) {
-      const options = optionsRef.current as HTMLElement;
-      options.classList.toggle("open");
-      const arrow = arrowRef.current as HTMLDivElement;
-      arrow.classList.toggle("open");
-    }
+    setDropdownOpen((isOpen) => !isOpen);
   };
 
   return (
     <DropdownWrapper>
       <ParamLabelWrapper>Enter your label text:</ParamLabelWrapper>
       <DropdownBox
-        onClick={toggleOptions}
-        ref={dropdownRef}
+        onClick={toggleDropdown}
         title="type your own text or select from the presets"
+        $showAlert={label.length >= 15}
       >
         <LabelInput
           type="text"
@@ -64,16 +45,22 @@ export const TextLabel = () => {
           onChange={handleChange}
           maxLength={15}
         />
-        <ArrowDiv onClick={toggleOptions} ref={arrowRef}>
+        <ArrowDiv
+          onClick={toggleDropdown}
+          $direction={isDropdownOpen ? "down" : "up"}
+        >
           <CaretRoundedDown />
         </ArrowDiv>
       </DropdownBox>
-      <DropdownOptions onClick={toggleOptions} ref={optionsRef}>
-        <DropdownOption option={labelPresets.hiring} />
-        <DropdownOption option={labelPresets.freelancing} />
-        <DropdownOption option={labelPresets.openForWork} />
-        <DropdownOption option={labelPresets.onLeave} />
-        <ModalBlocker onClick={toggleOptions} />
+      <DropdownOptions onClick={toggleDropdown} $isOpen={isDropdownOpen}>
+        {labelPresets.map((preset) => (
+          <DropdownOption
+            key={preset}
+            option={preset}
+            onClick={() => setLabel(preset)}
+          />
+        ))}
+        <ModalBlocker onClick={toggleDropdown} />
       </DropdownOptions>
     </DropdownWrapper>
   );
@@ -93,9 +80,11 @@ const ModalBlocker = styled.div`
   display: block;
   z-index: 98;
 `;
-
-const DropdownOptions = styled.div`
-  display: none;
+interface DropdownOptionsProps {
+  $isOpen?: boolean;
+}
+const DropdownOptions = styled.div<DropdownOptionsProps>`
+  display: ${({ $isOpen }) => ($isOpen ? "grid" : "none")};
   position: absolute;
   overflow: scroll;
   grid-area: options;
@@ -111,9 +100,6 @@ const DropdownOptions = styled.div`
   background-color: ${({ theme }) => theme.colors.gray50};
   margin-top: ${({ theme }) => `-${theme.spacing.xxxs}`};
   box-shadow: ${({ theme }) => theme.effects.boxShadow};
-  &.open {
-    display: grid;
-  }
 `;
 
 const OptionDiv = styled.div`
@@ -131,7 +117,10 @@ const OptionDiv = styled.div`
   }
 `;
 
-const ArrowDiv = styled.div`
+interface ArrowDivProps {
+  $direction?: "down" | "up";
+}
+const ArrowDiv = styled.div<ArrowDivProps>`
   box-sizing: content-box;
   grid-area: arrow;
   display: flex;
@@ -142,12 +131,14 @@ const ArrowDiv = styled.div`
   &:hover {
     background-color: ${({ theme }) => theme.colors.gray60};
   }
-  &.open {
-    transform: rotate(180deg);
-  }
+  transform: ${({ $direction }) =>
+    $direction === "up" ? "rotate(0deg)" : "rotate(180deg)"};
 `;
 
-const DropdownBox = styled.div`
+interface DropdownBoxProps {
+  $showAlert?: boolean;
+}
+const DropdownBox = styled.div<DropdownBoxProps>`
   display: grid;
   grid-template-columns: 90% 10%;
   grid-template-areas: "label arrow";
@@ -157,12 +148,10 @@ const DropdownBox = styled.div`
   z-index: 100;
   box-sizing: content-box;
   cursor: pointer;
-  border: ${({ theme }) => theme.borders.regular};
+  border: ${({ theme, $showAlert }) =>
+    $showAlert ? theme.borders.alert : theme.borders.regular};
   &:focus-within {
     border: ${({ theme }) => theme.borders.focus};
-  }
-  &.alert {
-    border: ${({ theme }) => theme.borders.alert};
   }
 `;
 

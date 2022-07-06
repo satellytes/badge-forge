@@ -34,7 +34,7 @@ describe("TextLabel", () => {
     const DropdownBox = screen.getByTitle(
       "type your own text or select from the presets"
     );
-    expect(DropdownBox.classList).not.toContain("alert");
+    expect(getComputedStyle(DropdownBox).border).toBe(Theme.borders.regular);
 
     fireEvent.change(input, { target: { value: inputValue } });
 
@@ -47,6 +47,6 @@ describe("TextLabel", () => {
     expect(input).toHaveValue(inputValue);
 
     // Expect error icon
-    expect(DropdownBox.classList).toContain("alert");
+    expect(getComputedStyle(DropdownBox).border).toBe(Theme.borders.alert);
   });
 });

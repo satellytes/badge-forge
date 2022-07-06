@@ -1,6 +1,6 @@
-export const labelPresets = {
-  hiring: "#HIRING",
-  openForWork: "#OPENFORWORK",
-  freelancing: "#FREELANCING",
-  onLeave: "#ONLEAVE",
-};
+export const labelPresets: string[] = [
+  "#HIRING",
+  "#OPENFORWORK",
+  "#FREELANCING",
+  "#ONLEAVE",
+];
