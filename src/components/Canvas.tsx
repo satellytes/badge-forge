@@ -13,7 +13,7 @@ export const Canvas = ({ children }: Props) => {
     <CanvasWrapper>
       {children}
       {/** used to pre-load the font before drawing*/}
-      <div style={{ fontFamily: "CocoGothic, Inter" }}> </div>
+      <div style={{ fontFamily: "CocoGothic" }}> </div>
       <CircleCanvas ref={canvasRef} width={canvasWidth} height={canvasHeight} />
     </CanvasWrapper>
   );
@@ -21,6 +21,9 @@ export const Canvas = ({ children }: Props) => {
 
 const CanvasWrapper = styled.div`
   grid-area: canvas;
+  box-sizing: border-box;
+  width: 235px;
+  height: 235px;
 `;
 
 const CircleCanvas = styled.canvas`
