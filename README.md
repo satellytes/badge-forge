@@ -27,7 +27,7 @@ Then you can use the following commands to start development:
 npm install
 
 # start local dev server
-npm start dev
+npm run start
 
 # create a production build
 npm run build
