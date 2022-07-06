@@ -14,7 +14,6 @@ import {
   Wizard,
   WizardWrapper
 } from "./Containers";
-import { HoverArea } from "./HoverArea";
 import { ImageSelector, Instructions } from "./ImageSelector";
 import { RangeSelectors } from "./RangeSelectors";
 import { RenderButton } from "./RenderButton";
@@ -87,9 +86,7 @@ export const BadgeForge = () => {
         </ParamWrapper>
         <ExportWrapper>
           <Canvas>
-            <HoverArea>
-              <ImageSelector />
-            </HoverArea>
+            <ImageSelector />
           </Canvas>
           <Instructions />
           <RenderButton />
