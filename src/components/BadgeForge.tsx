@@ -1,15 +1,11 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { drawDonut } from "../lib/canvas/drawDonut";
 import { drawImage } from "../lib/canvas/drawImage";
 import { drawLabel } from "../lib/canvas/drawLabel";
+import placeholder from "../static/images/placeholder.svg";
 import { Canvas } from "./Canvas";
-import { ImageSelector, Instructions } from "./ImageSelector";
-import { RenderButton } from "./RenderButton";
-import { TextLabel } from "./TextLabel";
-import { RangeSelectors } from "./RangeSelectors";
 import { ColorSwatches } from "./ColorSelector";
-import { HoverArea } from "./HoverArea";
 import {
   ExportWrapper,
   ParamWrapper,
@@ -18,7 +14,11 @@ import {
   Wizard,
   WizardWrapper,
 } from "./Containers";
-import placeholder from "../static/images/placeholder.svg";
+import { HoverArea } from "./HoverArea";
+import { ImageSelector, Instructions } from "./ImageSelector";
+import { RangeSelectors } from "./RangeSelectors";
+import { RenderButton } from "./RenderButton";
+import { TextLabel } from "./TextLabel";
 
 export const BadgeForge = () => {
   const {
@@ -33,7 +33,7 @@ export const BadgeForge = () => {
     donutStroke,
   } = useContext(BadgeForgeContext);
 
-  const image = new Image();
+  const image = useMemo(() => new Image(), []);
   image.src = selectedFile ? URL.createObjectURL(selectedFile) : placeholder;
 
   useEffect(() => {
