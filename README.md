@@ -2,8 +2,8 @@
   <h1 align="center">Badge Forge</h1>
   <p align="center">A badge generator  written in TypeScript using React.js</p>
    <p align="center">
-    <a href="https://jolly-griffin-c4897b.netlify.app">
-      <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fjolly-griffin-c4897b.netlify.app/">
+    <a href="https://badgeforge.satellytes.com">
+      <img alt="Website" src="https://img.shields.io/website?url=https%3A%2F%2Fbadgeforge.satellytes.com/">
     </a>
     <a href="https://codecov.io/gh/satellytes/badge-forge" > 
       <img src="https://codecov.io/gh/satellytes/badge-forge/branch/main/graph/badge.svg?token=ZXPIOKTXNP"/> 
