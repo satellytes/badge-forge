@@ -64,8 +64,7 @@ declare module "styled-components" {
 
     font: {
       family: {
-        default: string;
-        fallback?: string;
+        cocoGothic: string;
       };
       size: {
         h1: string;

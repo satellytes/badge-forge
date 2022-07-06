@@ -62,8 +62,7 @@ export const Theme: DefaultTheme = {
 
   font: {
     family: {
-      default: "CocoGothic",
-      fallback: "CocoGothic, Helvetica, sans-serif",
+      cocoGothic: "CocoGothic",
     },
     size: {
       h1: "48px",

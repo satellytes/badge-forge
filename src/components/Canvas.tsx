@@ -35,5 +35,5 @@ const CircleCanvas = styled.canvas`
   width: 100%;
   height: 100%;
   z-index: 0;
-  font-family: ${({ theme }) => theme.font.family.fallback};
+  font-family: ${({ theme }) => theme.font.family.cocoGothic};
 `;
