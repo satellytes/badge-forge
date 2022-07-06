@@ -87,9 +87,7 @@ export const BadgeForge = () => {
         </ParamWrapper>
         <ExportWrapper>
           <Canvas>
-            <HoverArea>
-              <ImageSelector />
-            </HoverArea>
+            <ImageSelector />
           </Canvas>
           <Instructions />
           <RenderButton />
