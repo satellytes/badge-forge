@@ -12,7 +12,7 @@ import {
   SubTitleWrapper,
   TitleWrapper,
   Wizard,
-  WizardWrapper,
+  WizardWrapper
 } from "./Containers";
 import { HoverArea } from "./HoverArea";
 import { ImageSelector, Instructions } from "./ImageSelector";
@@ -58,6 +58,8 @@ export const BadgeForge = () => {
      * Draw Image
      */
     image.addEventListener("load", drawAll);
+
+    return () => image.removeEventListener("load", drawAll)
   }, [
     canvasHeight,
     canvasWidth,
