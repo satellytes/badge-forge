@@ -91,7 +91,7 @@ const CircleUpload = styled.label`
     backdrop-filter: blur(25px) brightness(0.7);
   }
   cursor: pointer;
-  font-weight: 700;
+  font-weight: ${({ theme }) => theme.font.weight.heavy};
   font-size: ${({ theme }) => theme.font.size.h3};
   color: ${({ theme }) => theme.colors.gray50};
   transition: border 0.2s ease-in-out;

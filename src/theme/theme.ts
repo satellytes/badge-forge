@@ -61,7 +61,7 @@ export const Theme: DefaultTheme = {
   },
 
   font: {
-    face: {
+    family: {
       default: "CocoGothic",
       fallback: "CocoGothic, Helvetica, sans-serif",
     },
@@ -69,6 +69,10 @@ export const Theme: DefaultTheme = {
       h1: "48px",
       h2: "20px",
       h3: "16px",
+    },
+    weight: {
+      regular: 400,
+      heavy: 700,
     },
   },
 

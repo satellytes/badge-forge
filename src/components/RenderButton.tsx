@@ -32,7 +32,7 @@ const Button = styled.button`
   grid-area: button;
   background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
   font-size: ${({ theme }) => theme.font.size.h3};
-  font-weight: 700;
+  font-weight: ${({ theme }) => theme.font.weight.heavy};
   height: 40px;
   width: 146px;
   box-sizing: border-box;

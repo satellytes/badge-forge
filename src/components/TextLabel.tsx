@@ -122,7 +122,7 @@ const OptionDiv = styled.div`
   cursor: pointer;
   height: ${({ theme }) => theme.dimensions.boxHeight};
   font-size: ${({ theme }) => theme.font.size.h3};
-  font-weight: 700;
+  font-weight: ${({ theme }) => theme.font.weight.heavy};
   padding-left: ${({ theme }) => theme.spacing.s};
   user-select: none;
   z-index: 100;
@@ -170,7 +170,7 @@ const LabelInput = styled.input`
   height: ${({ theme }) => theme.dimensions.boxHeight};
   padding: ${({ theme }) => theme.spacing.s};
   font-size: ${({ theme }) => theme.font.size.h3};
-  font-weight: 400;
+  font-weight: ${({ theme }) => theme.font.weight.regular};
   box-sizing: border-box;
   border: none;
   grid-area: label;

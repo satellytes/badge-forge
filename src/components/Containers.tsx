@@ -89,7 +89,7 @@ const ParamWrapperDiv = styled.div`
 
 export const ParamLabelWrapper = styled.p`
   color: ${({ theme }) => theme.colors.darkBlue};
-  font-weight: 700;
+  font-weight: ${({ theme }) => theme.font.weight.heavy};
   text-align: start;
   padding: 4px 0px;
   margin: 0px;
@@ -101,7 +101,7 @@ export const TitleWrapper = styled.p`
   color: ${({ theme }) => theme.colors.gray900};
   text-align: start;
   font-size: ${({ theme }) => theme.font.size.h1};
-  font-weight: 700;
+  font-weight: ${({ theme }) => theme.font.weight.heavy};
 `;
 
 export const SubTitleWrapper = styled.p`
@@ -109,7 +109,7 @@ export const SubTitleWrapper = styled.p`
   color: ${({ theme }) => theme.colors.gray900};
   text-align: start;
   font-size: ${({ theme }) => theme.font.size.h2};
-  font-weight: 400;
+  font-weight: ${({ theme }) => theme.font.weight.regular};
   margin: 0;
 `;
 

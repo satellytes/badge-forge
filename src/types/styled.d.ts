@@ -63,7 +63,7 @@ declare module "styled-components" {
     };
 
     font: {
-      face: {
+      family: {
         default: string;
         fallback?: string;
       };
@@ -71,6 +71,10 @@ declare module "styled-components" {
         h1: string;
         h2: string;
         h3: string;
+      };
+      weight: {
+        regular: number;
+        heavy: number;
       };
     };
 
