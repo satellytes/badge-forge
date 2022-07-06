@@ -50,8 +50,7 @@ declare module "styled-components" {
     };
 
     spacing: {
-      nxxxs: string;
-      nxxs: string;
+      xxxxs: string;
       xxxs: string;
       xxs: string;
       xs: string;
@@ -61,6 +60,18 @@ declare module "styled-components" {
       xl: string;
       xxl: string;
       xxxl: string;
+    };
+
+    font: {
+      face: {
+        default: string;
+        fallback?: string;
+      };
+      size: {
+        h1: string;
+        h2: string;
+        h3: string;
+      };
     };
 
     effects: {

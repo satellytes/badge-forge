@@ -93,14 +93,14 @@ export const ParamLabelWrapper = styled.p`
   text-align: start;
   padding: 4px 0px;
   margin: 0px;
-  font-size: ${({ theme }) => theme.spacing.s};
+  font-size: ${({ theme }) => theme.font.size.h3};
 `;
 
 export const TitleWrapper = styled.p`
   margin: 0;
   color: ${({ theme }) => theme.colors.gray900};
   text-align: start;
-  font-size: ${({ theme }) => theme.spacing.xxl};
+  font-size: ${({ theme }) => theme.font.size.h1};
   font-weight: 700;
 `;
 
@@ -108,7 +108,7 @@ export const SubTitleWrapper = styled.p`
   grid-area: subheader;
   color: ${({ theme }) => theme.colors.gray900};
   text-align: start;
-  font-size: ${({ theme }) => theme.spacing.m};
+  font-size: ${({ theme }) => theme.font.size.h2};
   font-weight: 400;
   margin: 0;
 `;

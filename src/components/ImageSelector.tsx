@@ -66,8 +66,7 @@ const InstructionDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  column-gap: 8px;
-  font-size: ${({ theme }) => theme.spacing.s};
+  font-size: ${({ theme }) => theme.font.size.h3};
   & label {
     color: ${({ theme }) => theme.colors.purple400};
     cursor: pointer;
@@ -93,14 +92,10 @@ const CircleUpload = styled.label`
   }
   cursor: pointer;
   font-weight: 700;
-  font-size: ${({ theme }) => theme.spacing.s};
+  font-size: ${({ theme }) => theme.font.size.h3};
   color: ${({ theme }) => theme.colors.gray50};
   transition: border 0.2s ease-in-out;
   z-index: 2;
-  & * {
-    color: ${({ theme }) => theme.colors.gray50};
-    pointer-events: none;
-  }
   & input {
     display: none;
   }

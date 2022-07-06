@@ -109,7 +109,7 @@ const DropdownOptions = styled.div`
   max-height: 200px;
   z-index: 98;
   background-color: ${({ theme }) => theme.colors.gray50};
-  margin-top: ${({ theme }) => theme.spacing.nxxxs};
+  margin-top: ${({ theme }) => `-${theme.spacing.xxxs}`};
   box-shadow: ${({ theme }) => theme.effects.boxShadow};
   &.open {
     display: grid;
@@ -121,7 +121,7 @@ const OptionDiv = styled.div`
   align-items: center;
   cursor: pointer;
   height: ${({ theme }) => theme.dimensions.boxHeight};
-  font-size: ${({ theme }) => theme.spacing.s};
+  font-size: ${({ theme }) => theme.font.size.h3};
   font-weight: 700;
   padding-left: ${({ theme }) => theme.spacing.s};
   user-select: none;
@@ -155,7 +155,7 @@ const DropdownBox = styled.div`
   height: ${({ theme }) => theme.dimensions.boxHeight};
   background-color: ${({ theme }) => theme.colors.gray50};
   z-index: 100;
-  box-sizing: border-box;
+  box-sizing: content-box;
   cursor: pointer;
   border: ${({ theme }) => theme.borders.regular};
   &:focus-within {
@@ -169,14 +169,13 @@ const DropdownBox = styled.div`
 const LabelInput = styled.input`
   height: ${({ theme }) => theme.dimensions.boxHeight};
   padding: ${({ theme }) => theme.spacing.s};
-  font-size: ${({ theme }) => theme.spacing.s};
+  font-size: ${({ theme }) => theme.font.size.h3};
   font-weight: 400;
   box-sizing: border-box;
   border: none;
-  font-size: 17px;
   grid-area: label;
   width: 100%;
-  margin: ${({ theme }) => theme.spacing.nxxs};
+  margin: ${({ theme }) => `-${theme.spacing.xxxxs}`};
   background-color: transparent;
   &:focus {
     outline-width: 0;

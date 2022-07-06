@@ -12,7 +12,7 @@ html, body {
 }
 
 * {
-    font-family: 'CocoGothic', 'Inter', Helvetica, sans-serif; 
+    font-family: ${({ theme }) => theme.font.face.fallback}; 
     position: relative;
     color: ${({ theme }) => theme.colors.darkBlue};
 }

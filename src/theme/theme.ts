@@ -48,8 +48,7 @@ export const Theme: DefaultTheme = {
   },
 
   spacing: {
-    nxxxs: "-4px",
-    nxxs: "-2px",
+    xxxxs: "-2px",
     xxxs: "4px",
     xxs: "8px",
     xs: "12px",
@@ -61,6 +60,18 @@ export const Theme: DefaultTheme = {
     xxxl: "",
   },
 
+  font: {
+    face: {
+      default: "CocoGothic",
+      fallback: "CocoGothic, Helvetica, sans-serif",
+    },
+    size: {
+      h1: "48px",
+      h2: "20px",
+      h3: "16px",
+    },
+  },
+
   effects: {
     boxShadow: "0px 0px 16px rgba(0, 0, 0, 0.16)",
     canvasShadow: "0px 0px 16px rgba(0, 0, 0, 0.1)",
@@ -68,7 +79,7 @@ export const Theme: DefaultTheme = {
   },
 
   dimensions: {
-    boxHeight: "46px",
+    boxHeight: "42px",
     swatchHeight: "24px",
     swatchWidth: "46px",
   },
