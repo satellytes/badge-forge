@@ -4,16 +4,14 @@ import { drawDonut } from "../lib/canvas/drawDonut";
 import { drawImage } from "../lib/canvas/drawImage";
 import { drawLabel } from "../lib/canvas/drawLabel";
 import { Canvas } from "./Canvas";
-import { ImageSelector } from "./ImageSelector";
+import { ImageSelector, Instructions } from "./ImageSelector";
 import { RenderButton } from "./RenderButton";
 import { TextLabel } from "./TextLabel";
 import { RangeSelectors } from "./RangeSelectors";
 import { ColorSwatches } from "./ColorSelector";
 import { HoverArea } from "./HoverArea";
 import {
-  ColDiv,
   ExportWrapper,
-  Instructions,
   ParamWrapper,
   SubTitleWrapper,
   TitleWrapper,
@@ -75,28 +73,26 @@ export const BadgeForge = () => {
 
   return (
     <WizardWrapper>
+      <TitleWrapper>BadgeForge</TitleWrapper>
+      <SubTitleWrapper>
+        Create customized profile pictures with ease.
+      </SubTitleWrapper>
       <Wizard>
         <ParamWrapper>
-          <TitleWrapper>BadgeForge</TitleWrapper>
-          <SubTitleWrapper>
-            Create customized profile pictures with ease.
-          </SubTitleWrapper>
           <TextLabel />
           <ColorSwatches />
           <RangeSelectors />
         </ParamWrapper>
         <ExportWrapper>
-          <ColDiv>
-            <Instructions />
-            <RenderButton />
-          </ColDiv>
+          <Canvas>
+            <HoverArea>
+              <ImageSelector />
+            </HoverArea>
+          </Canvas>
+          <Instructions />
+          <RenderButton />
         </ExportWrapper>
       </Wizard>
-      <Canvas>
-        <HoverArea>
-          <ImageSelector />
-        </HoverArea>
-      </Canvas>
     </WizardWrapper>
   );
 };

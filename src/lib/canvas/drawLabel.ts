@@ -1,12 +1,12 @@
 export const drawLabel = (
   context: CanvasRenderingContext2D,
-  label: string = "#HIRING",
+  label: string = "............",
   size: number,
   radius: number,
   angle: number,
   color: string
 ) => {
-  label = label.length === 0 ? "#HIRING" : label;
+  label = label.length === 0 ? "............" : label;
 
   var len = label.length,
     s,
@@ -14,7 +14,7 @@ export const drawLabel = (
 
   context.save();
   context.textAlign = "center";
-  context.font = `bold ${0.1 * size}px Inter, Helvetica, sans-serif`;
+  context.font = `bold ${0.1 * size}px CocoGothic, Helvetica, sans-serif`;
   context.fillStyle = color;
   context.translate(size / 2, size / 2);
   context.rotate(angle + Math.PI / 2);

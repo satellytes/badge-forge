@@ -1,4 +1,5 @@
 import { createContext, ReactNode, RefObject, useRef, useState } from "react";
+import { useTheme } from "styled-components";
 
 interface BadgeForgeContextState {
   // Canvas
@@ -33,14 +34,15 @@ interface BadgeForgeContextProviderProps {
 export const BadgeForgeContextProvider = ({
   children,
 }: BadgeForgeContextProviderProps) => {
-  const canvasWidth = 512;
+  const { colors } = useTheme();
+  const canvasWidth = 800;
   const canvasHeight = canvasWidth;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [label, setLabel] = useState<string>("");
-  const [donutColor, setDonutColor] = useState<string>("#794bc4");
+  const [donutColor, setDonutColor] = useState<string>(colors.purple400);
   const [donutStroke, setDonutStroke] = useState<number>(0.175 * canvasWidth);
-  const [labelColor, setLabelColor] = useState<string>("#FFFFFF");
+  const [labelColor, setLabelColor] = useState<string>(colors.gray50);
   const [angle, setAngle] = useState<number>(-0.45);
 
   return (

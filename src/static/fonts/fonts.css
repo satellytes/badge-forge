@@ -1,0 +1,42 @@
+/* code taken from https://github.com/satellytes/satellytes.com/tree/main/static/fonts */
+
+/**
+ * Fonts need to be put into a .css file to be able to import them in gatsby-browser.js.
+ * By having the fonts in the gatsby-browser.js, we make sure to only load them once and
+ * not on any rerender.
+ */
+@font-face {
+    font-family: 'CocoGothic';
+    font-style: normal;
+    font-weight: 400;
+    font-display: auto;
+    src: local('CocoGothic'),
+    url("CocoGothic.woff2") format('woff2'),
+    url("CocoGothic.woff") format('woff'),
+    url("CocoGothic.ttf") format('truetype'),
+    url("CocoGothic.eot") format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'CocoGothic';
+    font-style: italic;
+    font-weight: 400;
+    font-display: auto;
+    src: local('CocoGothic Italic'),
+    url("CocoGothic-Italic.woff2") format('woff2'),
+    url("CocoGothic-Italic.woff") format('woff'),
+    url("CocoGothic-Italic.ttf") format('truetype'),
+    url("CocoGothic-Italic.eot") format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'CocoGothic';
+    font-style: normal;
+    font-weight: 700;
+    font-display: auto;
+    src: local('CocoGothic Bold'),
+    url("CocoGothic-Bold.woff2") format('woff2'),
+    url("CocoGothic-Bold.woff") format('woff'),
+    url("CocoGothic-Bold.ttf") format('truetype'),
+    url("CocoGothic-Bold.eot") format('embedded-opentype');
+}

@@ -6,11 +6,11 @@ import { Theme } from "../theme/theme";
 
 const customRender = () =>
   render(
-    <BadgeForgeContextProvider>
-      <ThemeProvider theme={Theme}>
+    <ThemeProvider theme={Theme}>
+      <BadgeForgeContextProvider>
         <RangeSelectors />
-      </ThemeProvider>
-    </BadgeForgeContextProvider>
+      </BadgeForgeContextProvider>
+    </ThemeProvider>
   );
 
 afterEach(cleanup);

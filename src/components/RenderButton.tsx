@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
-import { FiDownload } from "react-icons/fi";
+import { ReactComponent as Download } from "../static/images/icons/Download.svg";
 import { ButtonIcon } from "./Containers";
 
 export const RenderButton = () => {
@@ -20,30 +20,31 @@ export const RenderButton = () => {
 
   return (
     <Button onClick={handleClick} title="Download as PNG file">
+      <span>Save image</span>
       <ButtonIcon>
-        <FiDownload />
+        <Download />
       </ButtonIcon>
-      <span>SAVE IMAGE</span>
     </Button>
   );
 };
 
 const Button = styled.button`
-  color: ${({ theme }) => theme.colors.gray50};
-  font-size: 17px;
-  font-weight: 500;
-  height: calc(var(--param-height) * 1.5);
-  width: 200px;
+  grid-area: button;
+  background: linear-gradient(275.41deg, #543fd7 0%, #2756fd 100%);
+  font-size: ${({ theme }) => theme.font.size.h3};
+  font-weight: ${({ theme }) => theme.font.weight.heavy};
+  height: 40px;
+  width: 146px;
   box-sizing: border-box;
-  border-radius: var(--param-border-radius);
-  background-color: ${({ theme }) => theme.colors.gray700};
-  border: solid 2px ${({ theme }) => theme.colors.gray800};
-  box-shadow: var(--param-shadow);
-  transition: var(--param-grow);
+  border-radius: 30px;
+  border: none;
+  transition: ${({ theme }) => theme.effects.growTransition};
   cursor: pointer;
-  & > * {
+  & span {
     vertical-align: middle;
     display: inline-block;
+    padding-left: ${({ theme }) => theme.spacing.xxxs};
+    color: ${({ theme }) => theme.colors.gray50};
   }
   &:hover {
     transform: scale(1.05);

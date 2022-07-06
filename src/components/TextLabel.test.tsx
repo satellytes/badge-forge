@@ -19,7 +19,7 @@ describe("TextLabel", () => {
 
     customRender();
 
-    const input = screen.getByPlaceholderText("max. 15 characters");
+    const input = screen.getByPlaceholderText("15 characters max.");
     fireEvent.change(input, { target: { value: expectedValue } });
 
     expect(input).toHaveValue(expectedValue);
@@ -30,7 +30,12 @@ describe("TextLabel", () => {
 
     customRender();
 
-    const input = screen.getByPlaceholderText("max. 15 characters");
+    const input = screen.getByPlaceholderText("15 characters max.");
+    const DropdownBox = screen.getByTitle(
+      "type your own text or select from the presets"
+    );
+    expect(DropdownBox.classList).not.toContain("alert");
+
     fireEvent.change(input, { target: { value: inputValue } });
 
     // Expect 15 chars
@@ -42,7 +47,6 @@ describe("TextLabel", () => {
     expect(input).toHaveValue(inputValue);
 
     // Expect error icon
-    const triangleIcon = screen.getByLabelText("Error");
-    expect(triangleIcon).toBeInTheDocument();
+    expect(DropdownBox.classList).toContain("alert");
   });
 });

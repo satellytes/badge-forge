@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <defs id="defs12" />
+   <path d="m 16,8.517767 -4,-4 -4,4" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" id="path2" />
+   <path d="m 12,4.517767 v 10" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" id="path4" />
+   <path
+      d="M5.25 13C5.25 12.3096 4.69036 11.75 4 11.75C3.30964 11.75 2.75 12.3096 2.75 13H5.25ZM21.25 13C21.25 12.3096 20.6904 11.75 20 11.75C19.3096 11.75 18.75 12.3096 18.75 13H21.25ZM20 20V21.25C20.6904 21.25 21.25 20.6904 21.25 20H20ZM4 20H2.75C2.75 20.6904 3.30964 21.25 4 21.25V20ZM18.75 13V20H21.25V13H18.75ZM20 18.75H4V21.25H20V18.75ZM5.25 20V13H2.75V20H5.25Z"
+      fill="white" id="path6" />
+</svg>

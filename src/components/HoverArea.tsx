@@ -1,26 +1,30 @@
-import { DragEvent, MouseEvent, ReactElement } from "react";
+import { DragEvent, MouseEvent, ReactElement, useState } from "react";
 import styled from "styled-components";
 
 type Props = {
   children?: ReactElement;
 };
 
-function revealArea(e: DragEvent | MouseEvent) {
-  e.preventDefault();
-  const target = e.target as HTMLDivElement;
-  const child = target.firstChild as HTMLLabelElement;
-  if (child) child.style.display = "block";
-}
-
 export const HoverArea = ({ children }: Props) => {
+  const [isVisible, setVisible] = useState(false);
+
+  const toggleArea =
+    (isVisible: boolean) =>
+    (e: DragEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>) => {
+      e.preventDefault();
+      setVisible(isVisible);
+    };
+
   return (
     <HoverDiv
       aria-label="hoverable"
-      onMouseOver={revealArea}
-      onDragEnter={revealArea}
-      onDragOver={revealArea}
+      onMouseOver={toggleArea(true)}
+      onDragEnter={toggleArea(true)}
+      onDragOver={toggleArea(true)}
+      onMouseOut={toggleArea(false)}
+      onDragLeave={toggleArea(false)}
     >
-      {children}
+      {isVisible && children}
     </HoverDiv>
   );
 };
@@ -30,7 +34,7 @@ const HoverDiv = styled.div`
   top: 0;
   left: 0;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
   z-index: 1;
 `;

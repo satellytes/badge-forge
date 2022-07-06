@@ -1,8 +1,9 @@
 import { ChangeEvent, useContext } from "react";
 import styled, { useTheme } from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
-import { ColDiv, RowDiv, ParamLabelWrapper, IconDiv } from "./Containers";
-import { FiCrosshair, FiType, FiTarget } from "react-icons/fi";
+import { RowDiv, ColDiv, ParamLabelWrapper, IconDiv } from "./Containers";
+import { ReactComponent as LabelColorIcon } from "../static/images/icons/Label.svg";
+import { ReactComponent as DonutColorIcon } from "../static/images/icons/Donut.svg";
 
 interface ColorSelectorProps {
   label: string;
@@ -13,7 +14,6 @@ interface ColorSelectorProps {
 interface ColorSwatchProps {
   parameter: "label" | "donut";
   color: string;
-  borderColor?: string;
 }
 
 interface ColorIconProps {
@@ -21,24 +21,20 @@ interface ColorIconProps {
 }
 
 const ColorSelector = ({ value, onChange }: ColorSelectorProps) => {
-  const { colors } = useTheme();
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
 
   return (
     <label>
-      <ColorSwatchDiv title="Pick color">
+      <ColorPickerDiv title="Pick color">
         <ColorInput
           type="color"
           value={value}
           onChange={handleChange}
           aria-label="colorpicker"
         />
-        <FiCrosshair
-          style={{ width: 20, height: 20, stroke: colors.gray500 }}
-        />
-      </ColorSwatchDiv>
+      </ColorPickerDiv>
     </label>
   );
 };
@@ -73,32 +69,58 @@ const ColorInput = styled.input`
   padding: 0px;
 `;
 
-const ColorSwatch = ({ color, parameter, borderColor }: ColorSwatchProps) => {
-  const { setLabelColor, setDonutColor } = useContext(BadgeForgeContext);
+const ColorSwatch = ({ color, parameter }: ColorSwatchProps) => {
+  const { colors } = useTheme();
+  const { setLabelColor, labelColor, setDonutColor, donutColor } =
+    useContext(BadgeForgeContext);
   return parameter === "label" ? (
     <ColorSwatchDiv
-      style={{ backgroundColor: color, borderColor: borderColor }}
+      style={{
+        backgroundColor: color,
+        borderColor: labelColor === color ? colors.grayTrans : color,
+      }}
       onClick={() => setLabelColor(color)}
     />
   ) : (
     <ColorSwatchDiv
-      style={{ backgroundColor: color, borderColor: borderColor }}
+      style={{
+        backgroundColor: color,
+        borderColor: donutColor === color ? colors.grayTrans : color,
+      }}
       onClick={() => setDonutColor(color)}
     />
   );
 };
 
 const ColorSwatchDiv = styled.div`
-  border-radius: var(--param-border-radius);
-  border: var(--param-border);
-  height: var(--param-height);
-  box-shadow: var(--param-shadow);
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: ${({ theme }) => theme.dimensions.swatchHeight};
+  width: ${({ theme }) => theme.dimensions.swatchWidth};
   box-sizing: border-box;
-  transition: var(--param-grow);
+  border: 3px solid;
+  transition: ${({ theme }) => theme.effects.growTransition};
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.95;
+  }
+  &:active {
+    opacity: 0.85;
+  }
+`;
+
+const ColorPickerDiv = styled.div`
+  height: ${({ theme }) => theme.dimensions.swatchHeight};
+  width: ${({ theme }) => theme.dimensions.swatchWidth};
+  background: conic-gradient(
+    from 45deg at 50% 50%,
+    #fb6c6c 0deg,
+    #eec73e 90deg,
+    #3eeed9 187.5deg,
+    #3e61ee 277.5deg,
+    #ee3e73 360deg
+  );
+  box-sizing: border-box;
+  transition: ${({ theme }) => theme.effects.growTransition};
   cursor: pointer;
   &:hover {
     transform: scale(1.05);
@@ -112,11 +134,7 @@ const ColorSwatchDiv = styled.div`
 const ColorIcon = ({ parameter }: ColorIconProps) => {
   return (
     <IconDiv>
-      {parameter === "label" ? (
-        <FiType title="Label color" />
-      ) : (
-        <FiTarget title="Border color" />
-      )}
+      {parameter === "label" ? <LabelColorIcon /> : <DonutColorIcon />}
     </IconDiv>
   );
 };
@@ -126,49 +144,29 @@ export const ColorSwatches = () => {
 
   return (
     <>
-      <ColDiv>
+      <RowDiv>
         <ParamLabelWrapper>
           Pick your label and border colors:
         </ParamLabelWrapper>
-        <RowDiv>
+        <ColDiv>
           <ColorIcon parameter="label" />
-          <ColorSwatch
-            color={colors.gray50}
-            borderColor={colors.gray100}
-            parameter="label"
-          />
-          <ColorSwatch
-            color={colors.gray900}
-            borderColor={colors.gray400}
-            parameter="label"
-          />
-          <ColorSwatch
-            color={colors.red700}
-            borderColor={colors.red400}
-            parameter="label"
-          />
+          <ColorSwatch color={colors.gray50} parameter="label" />
+          <ColorSwatch color={colors.turq400} parameter="label" />
+          <ColorSwatch color={colors.purple400} parameter="label" />
+          <ColorSwatch color={colors.red400} parameter="label" />
+          <ColorSwatch color={colors.gray650} parameter="label" />
           <LabelColorSelector />
-        </RowDiv>
-        <RowDiv>
+        </ColDiv>
+        <ColDiv>
           <ColorIcon parameter="donut" />
-          <ColorSwatch
-            color={colors.purple700}
-            borderColor={colors.purple400}
-            parameter="donut"
-          />
-          <ColorSwatch
-            color={colors.green700}
-            borderColor={colors.green400}
-            parameter="donut"
-          />
-          <ColorSwatch
-            color={colors.blue700}
-            borderColor={colors.blue400}
-            parameter="donut"
-          />
+          <ColorSwatch color={colors.gray50} parameter="donut" />
+          <ColorSwatch color={colors.turq400} parameter="donut" />
+          <ColorSwatch color={colors.purple400} parameter="donut" />
+          <ColorSwatch color={colors.red400} parameter="donut" />
+          <ColorSwatch color={colors.gray650} parameter="donut" />
           <DonutColorSelector />
-        </RowDiv>
-      </ColDiv>
+        </ColDiv>
+      </RowDiv>
     </>
   );
 };
