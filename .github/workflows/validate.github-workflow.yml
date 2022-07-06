@@ -1,0 +1,35 @@
+name: 💪 Validate
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, edited]
+
+jobs:
+  lint:
+    name: 💪 Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: 📥 Download deps
+        uses: bahmutov/npm-install@v1
+
+      - name: 🏗 Build
+        run: npm run build
+
+      - name: 🧺 Collect test coverage
+        run: npm run coverage
+
+      - name: ⏫ Upload coverage report
+        uses: codecov/codecov-action@v2
