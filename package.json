@@ -50,5 +50,11 @@
     "@types/styled-components": "^5.1.25",
     "cypress": "^10.1.0",
     "husky": "^8.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "!src/index.tsx",
+      "!src/reportWebVitals.ts"
+    ]
   }
 }
