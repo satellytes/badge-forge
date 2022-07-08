@@ -43,7 +43,7 @@ export const BadgeForgeContextProvider = ({
   const [donutColor, setDonutColor] = useState<string>(colors.purple400);
   const [donutStroke, setDonutStroke] = useState<number>(0.175 * canvasWidth);
   const [labelColor, setLabelColor] = useState<string>(colors.gray50);
-  const [angle, setAngle] = useState<number>(-0.45);
+  const [angle, setAngle] = useState<number>(-1);
 
   return (
     <BadgeForgeContext.Provider

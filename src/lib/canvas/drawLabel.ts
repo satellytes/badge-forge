@@ -8,9 +8,12 @@ export const drawLabel = (
 ) => {
   label = label.length === 0 ? "............" : label;
 
-  var len = label.length,
+  let len = label.length,
     s,
-    letterAngle;
+    letterAngle,
+    totalWidth = 0,
+    totalAngle = 0,
+    letterSpacing = 0.65;
 
   context.save();
   context.textAlign = "center";
@@ -19,9 +22,18 @@ export const drawLabel = (
   context.translate(size / 2, size / 2);
   context.rotate(angle + Math.PI / 2);
 
+  totalWidth = label
+    .split("")
+    .map((char) => context.measureText(char).width)
+    .reduce((a, b) => a + b, 0);
+  totalWidth = 2 * letterSpacing * totalWidth;
+  totalAngle = totalWidth / radius;
+  context.rotate(-totalAngle / 2);
+
   for (var n = 0; n < len; n++) {
     s = label[n];
-    letterAngle = 0.65 * (context.measureText(s).width / radius);
+    let letterWidth = context.measureText(s).width;
+    letterAngle = letterSpacing * (letterWidth / radius);
 
     context.rotate(letterAngle);
     context.save();
