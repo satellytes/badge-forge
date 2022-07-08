@@ -12,7 +12,7 @@ import {
   SubTitleWrapper,
   TitleWrapper,
   Wizard,
-  WizardWrapper
+  WizardWrapper,
 } from "./Containers";
 import { ImageSelector, Instructions } from "./ImageSelector";
 import { RangeSelectors } from "./RangeSelectors";
@@ -41,7 +41,7 @@ export const BadgeForge = () => {
       if (context) {
         context.clearRect(0, 0, canvasHeight, canvasWidth);
         drawImage(context, image, 0, 0);
-        drawDonut(context, canvasHeight, donutStroke, angle - 0.5, donutColor); // Offset angle by -0.5 since text starts at `angle`
+        drawDonut(context, canvasHeight, donutStroke, angle, donutColor);
         drawLabel(
           context,
           label,
@@ -58,7 +58,7 @@ export const BadgeForge = () => {
      */
     image.addEventListener("load", drawAll);
 
-    return () => image.removeEventListener("load", drawAll)
+    return () => image.removeEventListener("load", drawAll);
   }, [
     canvasHeight,
     canvasWidth,
