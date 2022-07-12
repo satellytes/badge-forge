@@ -12,8 +12,9 @@ import {
   SubTitleWrapper,
   TitleWrapper,
   Wizard,
-  WizardWrapper
+  WizardWrapper,
 } from "./Containers";
+import { Footer } from "./Footer";
 import { ImageSelector, Instructions } from "./ImageSelector";
 import { RangeSelectors } from "./RangeSelectors";
 import { RenderButton } from "./RenderButton";
@@ -58,7 +59,7 @@ export const BadgeForge = () => {
      */
     image.addEventListener("load", drawAll);
 
-    return () => image.removeEventListener("load", drawAll)
+    return () => image.removeEventListener("load", drawAll);
   }, [
     canvasHeight,
     canvasWidth,
@@ -92,6 +93,7 @@ export const BadgeForge = () => {
           <RenderButton />
         </ExportWrapper>
       </Wizard>
+      <Footer />
     </WizardWrapper>
   );
 };

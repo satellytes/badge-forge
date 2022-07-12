@@ -12,8 +12,9 @@ html, body {
 }
 
 * {
-    font-family: ${({ theme }) => theme.font.family.cocoGothic}; 
+    font-family: ${({ theme }) => theme.font.family.cocoGothic};
     position: relative;
-    color: ${({ theme }) => theme.colors.darkBlue};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 `;
