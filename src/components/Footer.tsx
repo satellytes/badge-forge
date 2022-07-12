@@ -53,7 +53,7 @@ const SocialLink = styled.a`
 `;
 
 const SocialIcon = styled(FontAwesomeIcon)`
-  color: ${Theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.gray300};
   &:hover {
     color: ${({ theme }) => theme.colors.darkBlue};
   }
