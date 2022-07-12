@@ -20,6 +20,7 @@ export const Canvas = ({ children }: Props) => {
 };
 
 const CanvasWrapper = styled.div`
+  position: relative;
   grid-area: canvas;
   box-sizing: border-box;
   width: 235px;

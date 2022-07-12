@@ -115,6 +115,7 @@ export const SubTitleWrapper = styled.p`
 `;
 
 export const ColDiv = styled.div`
+  position: relative;
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
@@ -122,6 +123,7 @@ export const ColDiv = styled.div`
 `;
 
 export const RowDiv = styled.div`
+  position: relative;
   display: grid;
   grid-auto-flow: row;
   align-content: space-between;

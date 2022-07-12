@@ -6,12 +6,11 @@ import {
   faLinkedin,
   faSafari,
 } from "@fortawesome/free-brands-svg-icons";
-import { Theme } from "../theme/theme";
 
 export const Footer = () => {
   return (
-    <FooterDiv>
-      <pre>Made by Satellytes · </pre>
+    <Wrapper>
+      <h5>Made by Satellytes&nbsp; · &nbsp;</h5>
       <SocialLink
         title="Satellytes on LinkedIn"
         href="https://www.linkedin.com/company/satellytes/"
@@ -22,29 +21,26 @@ export const Footer = () => {
         title="BadgeForge on GitHub"
         href="https://github.com/satellytes/badge-forge"
       >
-        <SocialIcon color={Theme.colors.gray300} icon={faGithub} />
+        <SocialIcon icon={faGithub} />
       </SocialLink>
       <SocialLink title="Satellytes Website" href="https:/satellytes.com/">
-        <SocialIcon color={Theme.colors.gray300} icon={faSafari} />
+        <SocialIcon icon={faSafari} />
       </SocialLink>
-    </FooterDiv>
+    </Wrapper>
   );
 };
 
-const FooterDiv = styled.div`
+const Wrapper = styled.footer`
   grid-area: footer;
   display: grid;
   grid-auto-flow: column;
   justify-content: end;
   align-items: center;
   color: ${({ theme }) => theme.colors.gray300};
-  font-size: ${({ theme }) => theme.font.size.h3};
   font-family: ${({ theme }) => theme.font.family.cocoGothic};
 `;
 
 const SocialLink = styled.a`
-  width: fit-content;
-  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;

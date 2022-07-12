@@ -9,12 +9,12 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-* {
     font-family: ${({ theme }) => theme.font.family.cocoGothic};
-    position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+button, input {
+    font-family: ${({ theme }) => theme.font.family.cocoGothic};
 }
 `;
