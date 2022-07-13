@@ -30,13 +30,14 @@ export const WizardWrapper = ({ children }: WrapperProps) => {
 const WizardWrapperDiv = styled.div`
   display: grid;
   grid-template-rows: ${({ theme }) => theme.spacing.xxl} ${({ theme }) =>
-      theme.spacing.xl} ${({ theme }) => theme.spacing.xl} 45px 1fr;
+      theme.spacing.xl} ${({ theme }) => theme.spacing.xl} 45px 1fr 55px;
   grid-template-areas:
     "header"
     "pad0"
     "subheader"
     "pad1"
-    "wizard";
+    "wizard"
+    "footer";
   grid-auto-flow: row;
   align-items: end;
 `;
@@ -114,6 +115,7 @@ export const SubTitleWrapper = styled.p`
 `;
 
 export const ColDiv = styled.div`
+  position: relative;
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
@@ -121,6 +123,7 @@ export const ColDiv = styled.div`
 `;
 
 export const RowDiv = styled.div`
+  position: relative;
   display: grid;
   grid-auto-flow: row;
   align-content: space-between;

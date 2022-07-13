@@ -11,11 +11,12 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: ${({ theme }) => theme.font.family.cocoGothic};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-    font-family: ${({ theme }) => theme.font.family.cocoGothic}; 
-    position: relative;
-    color: ${({ theme }) => theme.colors.darkBlue};
+button, input {
+    font-family: ${({ theme }) => theme.font.family.cocoGothic};
 }
 `;

@@ -14,6 +14,7 @@ import {
   Wizard,
   WizardWrapper,
 } from "./Containers";
+import { Footer } from "./Footer";
 import { ImageSelector, Instructions } from "./ImageSelector";
 import { RangeSelectors } from "./RangeSelectors";
 import { RenderButton } from "./RenderButton";
@@ -92,6 +93,7 @@ export const BadgeForge = () => {
           <RenderButton />
         </ExportWrapper>
       </Wizard>
+      <Footer />
     </WizardWrapper>
   );
 };
