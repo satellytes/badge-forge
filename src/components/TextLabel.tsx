@@ -86,7 +86,7 @@ interface DropdownOptionsProps {
 const DropdownOptions = styled.div<DropdownOptionsProps>`
   display: ${({ $isOpen }) => ($isOpen ? "grid" : "none")};
   position: absolute;
-  overflow: scroll;
+  overflow: auto;
   grid-area: options;
   grid-template-rows: repeat(
     auto-fit,

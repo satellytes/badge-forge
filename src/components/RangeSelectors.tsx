@@ -31,8 +31,8 @@ const AngleSelector = () => {
   return (
     <RangeInput
       type="range"
-      min="-100"
-      max="100"
+      min="-250"
+      max="200"
       value={angle * 100}
       step={10}
       onChange={handleValueChange}

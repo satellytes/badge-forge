@@ -42,7 +42,7 @@ export const BadgeForge = () => {
       if (context) {
         context.clearRect(0, 0, canvasHeight, canvasWidth);
         drawImage(context, image, 0, 0);
-        drawDonut(context, canvasHeight, donutStroke, angle - 0.5, donutColor); // Offset angle by -0.5 since text starts at `angle`
+        drawDonut(context, canvasHeight, donutStroke, angle, donutColor);
         drawLabel(
           context,
           label,
