@@ -14,16 +14,22 @@ export const Footer = () => {
       <SocialLink
         title="Satellytes on LinkedIn"
         href="https://www.linkedin.com/company/satellytes/"
+        target="_blank"
       >
         <SocialIcon icon={faLinkedin} />
       </SocialLink>
       <SocialLink
         title="BadgeForge on GitHub"
         href="https://github.com/satellytes/badge-forge"
+        target="_blank"
       >
         <SocialIcon icon={faGithub} />
       </SocialLink>
-      <SocialLink title="Satellytes Website" href="https:/satellytes.com/">
+      <SocialLink
+        title="Satellytes Website"
+        href="https://satellytes.com/"
+        target="_blank"
+      >
         <SocialIcon icon={faSafari} />
       </SocialLink>
     </Wrapper>
