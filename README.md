@@ -14,7 +14,7 @@
   </p>
 </p>
 
-![BadgeForge](https://user-images.githubusercontent.com/104005017/175064215-16be718b-31ae-412d-a10c-ba651f646ba0.gif)
+![badgeforge_demo](https://user-images.githubusercontent.com/104005017/178715428-3ad7a58c-e5bb-41c4-8959-b1ecd33097c2.gif)
 
 ## Project setup
 
