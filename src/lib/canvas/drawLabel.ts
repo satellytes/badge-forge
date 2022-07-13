@@ -1,3 +1,5 @@
+import { Theme } from "../../theme/theme";
+
 export const drawLabel = (
   context: CanvasRenderingContext2D,
   label: string = "............",
@@ -17,7 +19,7 @@ export const drawLabel = (
 
   context.save();
   context.textAlign = "center";
-  context.font = `bold ${0.1 * size}px CocoGothic, Helvetica, sans-serif`;
+  context.font = `bold ${0.1 * size}px ${Theme.font.family.cocoGothic}`;
   context.fillStyle = color;
   context.translate(size / 2, size / 2);
   context.rotate(angle + Math.PI / 2);
