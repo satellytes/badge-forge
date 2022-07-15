@@ -1,9 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-// import "../static/fonts/fonts.css";
-import { cocoFontFaces } from "./coco-font";
 
 export default createGlobalStyle`
-${cocoFontFaces}
 
 html, body {
     height: 100%;
