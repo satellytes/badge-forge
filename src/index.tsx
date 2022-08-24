@@ -4,6 +4,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import * as Panelbear from "@panelbear/panelbear-js";
 
+// initialize analytics with Panelbear
+Panelbear.load("3TV3m1B7O7p");
+
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -17,5 +20,4 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-Panelbear.load("3TV3m1B7O7p");
 Panelbear.trackPageview();
