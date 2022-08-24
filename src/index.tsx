@@ -2,6 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import * as Panelbear from "@panelbear/panelbear-js";
+
+// initialize analytics with Panelbear and track page view
+Panelbear.load("3TV3m1B7O7p");
+Panelbear.trackPageview();
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { BadgeForgeContext } from "../contexts/BadgeForgeContext";
 import { ReactComponent as Download } from "../static/images/icons/Download.svg";
 import { ButtonIcon } from "./Containers";
+import * as Panelbear from "@panelbear/panelbear-js";
 
 export const RenderButton = () => {
   const { canvasRef } = useContext(BadgeForgeContext);
@@ -15,6 +16,7 @@ export const RenderButton = () => {
         .toISOString()
         .substring(0, 10)}.png`;
       anchor.click();
+      Panelbear.track("Download");
     }
   };
 
