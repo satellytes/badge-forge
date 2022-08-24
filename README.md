@@ -1,5 +1,5 @@
 <p align="center">
-  <h1 align="center">Badge Forge</h1>
+  <h1 align="center">BadgeForge</h1>
   <p align="center">A badge generator  written in TypeScript using React.js</p>
    <p align="center">
     <a href="https://badgeforge.satellytes.com">
