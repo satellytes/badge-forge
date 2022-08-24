@@ -62,10 +62,9 @@ export const DonutColorSelector = () => {
 };
 
 const ColorInput = styled.input`
-  visibility: hidden;
-  border-width: 0px;
-  width: 0px;
-  height: 0px;
+  opacity: 0;
+  height: ${({ theme }) => theme.dimensions.swatchHeight};
+  width: ${({ theme }) => theme.dimensions.swatchWidth};
   padding: 0px;
 `;
 
