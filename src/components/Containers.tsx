@@ -13,17 +13,17 @@ export const Wizard = ({ children }: WrapperProps) => {
 
 const WizardDiv = styled.div`
   position: relative;
-  max-width: 820px;
+  max-width: 800px;
   height: 400px;
   padding: ${({ theme }) => theme.spacing.xxl};
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.gray60};
   display: grid;
-  grid-template-columns: 6fr 2fr 4fr;
-  grid-template-areas: "params pad export";
+  grid-template-areas: "params export";
+  column-gap: ${({ theme }) => theme.spacing.xxxl};
   grid-area: wizard;
-  @media (max-width: 820px) {
-    margin-top: 100px;
+  @media (max-width: 832px) {
+    margin-top: ${({ theme }) => theme.spacing.xxxl};
     height: 700px;
     grid-template-rows: 8fr 2fr 8fr;
     grid-template-areas:
@@ -49,6 +49,8 @@ const WizardWrapperDiv = styled.div`
     "footer";
   grid-auto-flow: row;
   align-items: end;
+  margin-left: ${({ theme }) => theme.spacing.s};
+  margin-right: ${({ theme }) => theme.spacing.s};
 `;
 
 export const ParamWrapper = ({ children }: WrapperProps) => {

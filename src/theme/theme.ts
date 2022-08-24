@@ -57,7 +57,7 @@ export const Theme: DefaultTheme = {
     l: "24px",
     xl: "32px",
     xxl: "48px",
-    xxxl: "",
+    xxxl: "100px",
   },
 
   font: {

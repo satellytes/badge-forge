@@ -3,7 +3,6 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
 
 html, body {
-    height: 100%;
     background-color: ${({ theme }) => theme.colors.gray50};
     display: flex;
     margin-left: auto;
@@ -14,7 +13,7 @@ html, body {
 }
 
 body {
-    padding-top: 5%;
+    padding-top: ${({ theme }) => theme.spacing.xxxl};
 }
 
 button, input {
