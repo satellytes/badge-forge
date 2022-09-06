@@ -61,6 +61,9 @@ const Wrapper = styled.footer`
 const FooterLink = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.gray300};
+  &:hover {
+    color: ${({ theme }) => theme.colors.darkBlue};
+  }
 `;
 
 const SocialLink = styled.a`
