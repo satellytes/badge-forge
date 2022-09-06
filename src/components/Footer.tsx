@@ -10,7 +10,19 @@ import {
 export const Footer = () => {
   return (
     <Wrapper>
-      <h5>Made by Satellytes&nbsp; · &nbsp;</h5>
+      <h5>
+        Made by Satellytes&nbsp; · &nbsp;
+        <FooterLink
+          title="Satellytes Imprint (de)"
+          href="https://satellytes.com/de/imprint/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Imprint
+        </FooterLink>
+        &nbsp; · &nbsp;
+      </h5>
+
       <SocialLink
         title="Satellytes on LinkedIn"
         href="https://www.linkedin.com/company/satellytes/"
@@ -44,6 +56,11 @@ const Wrapper = styled.footer`
   align-items: center;
   color: ${({ theme }) => theme.colors.gray300};
   font-family: ${({ theme }) => theme.font.family.cocoGothic};
+`;
+
+const FooterLink = styled.a`
+  text-decoration: none;
+  color: ${({ theme }) => theme.colors.gray300};
 `;
 
 const SocialLink = styled.a`
