@@ -9,11 +9,13 @@ import { ColorSwatches } from "./ColorSelector";
 import {
   ExportWrapper,
   ParamWrapper,
+  FAQTitleWrapper,
   SubTitleWrapper,
   TitleWrapper,
   Wizard,
   WizardWrapper,
 } from "./Containers";
+import { FAQ } from "./FAQ";
 import { Footer } from "./Footer";
 import { ImageSelector, Instructions } from "./ImageSelector";
 import { RangeSelectors } from "./RangeSelectors";
@@ -93,6 +95,8 @@ export const BadgeForge = () => {
           <RenderButton />
         </ExportWrapper>
       </Wizard>
+      <FAQTitleWrapper>How to & FAQs</FAQTitleWrapper>
+      <FAQ />
       <Footer />
     </WizardWrapper>
   );
