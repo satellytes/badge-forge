@@ -4,6 +4,7 @@ import "@reach/accordion/styles.css";
 import styled from "styled-components";
 import { AccordionAnimatedPanel } from "../lib/accordion/accordion-animated-panel";
 import { AccordionHeader } from "../lib/accordion/accordion-header";
+import { H2Wrapper } from "./Containers";
 
 export interface AccordionProps {
   /**
@@ -72,6 +73,10 @@ const AccordionText = styled.p`
   margin-bottom: -3px;
 `;
 
+export const FAQTitleWrapper = styled(H2Wrapper)`
+  grid-area: faq-subheader;
+`;
+
 export const FAQ = () => {
   return (
     <>
@@ -80,7 +85,8 @@ export const FAQ = () => {
           <AccordionSection title="What can I do with this tool?">
             <AccordionText>
               BadgeForge allows you to quickly enhance your social media profile
-              pictures with custom text frames.
+              pictures with custom text frames for use on platforms like
+              LinkedIn, Facebook, Twitter and Instagram.
             </AccordionText>
           </AccordionSection>
 

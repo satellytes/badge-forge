@@ -9,7 +9,6 @@ import { ColorSwatches } from "./ColorSelector";
 import {
   ExportWrapper,
   ParamWrapper,
-  FAQTitleWrapper,
   SubTitleWrapper,
   TitleWrapper,
   Wizard,
@@ -21,6 +20,7 @@ import { ImageSelector, Instructions } from "./ImageSelector";
 import { RangeSelectors } from "./RangeSelectors";
 import { RenderButton } from "./RenderButton";
 import { TextLabel } from "./TextLabel";
+import { FAQTitleWrapper } from "./FAQ";
 
 export const BadgeForge = () => {
   const {

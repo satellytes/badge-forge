@@ -139,8 +139,7 @@ export const SubTitleWrapper = styled.h2`
   margin: 0;
 `;
 
-export const FAQTitleWrapper = styled.h2`
-  grid-area: faq-subheader;
+export const H2Wrapper = styled.h2`
   color: ${({ theme }) => theme.colors.gray900};
   text-align: start;
   font-size: ${({ theme }) => theme.font.size.h2};
