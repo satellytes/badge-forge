@@ -1,17 +1,22 @@
 import styled from "styled-components";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGithub,
-  faLinkedin,
-  faSafari,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export const Footer = () => {
   return (
     <Wrapper>
       <h5>
-        Made by Satellytes&nbsp; · &nbsp;
+        Made by{" "}
+        <FooterLink
+          title="Satellytes Imprint (de)"
+          href="https://satellytes.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Satellytes
+        </FooterLink>
+        &nbsp; · &nbsp;
         <FooterLink
           title="Satellytes Imprint (de)"
           href="https://satellytes.com/de/imprint/"
@@ -37,13 +42,6 @@ export const Footer = () => {
       >
         <SocialIcon icon={faGithub} />
       </SocialLink>
-      <SocialLink
-        title="Satellytes Website"
-        href="https://satellytes.com/"
-        target="_blank"
-      >
-        <SocialIcon icon={faSafari} />
-      </SocialLink>
     </Wrapper>
   );
 };
@@ -52,7 +50,7 @@ const Wrapper = styled.footer`
   grid-area: footer;
   display: grid;
   grid-auto-flow: column;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.colors.gray300};
   font-family: ${({ theme }) => theme.font.family.cocoGothic};

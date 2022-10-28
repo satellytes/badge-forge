@@ -14,11 +14,13 @@ import {
   Wizard,
   WizardWrapper,
 } from "./Containers";
+import { FAQ } from "./FAQ";
 import { Footer } from "./Footer";
 import { ImageSelector, Instructions } from "./ImageSelector";
 import { RangeSelectors } from "./RangeSelectors";
 import { RenderButton } from "./RenderButton";
 import { TextLabel } from "./TextLabel";
+import { FAQTitleWrapper } from "./FAQ";
 
 export const BadgeForge = () => {
   const {
@@ -93,6 +95,8 @@ export const BadgeForge = () => {
           <RenderButton />
         </ExportWrapper>
       </Wizard>
+      <FAQTitleWrapper>How to & FAQs</FAQTitleWrapper>
+      <FAQ />
       <Footer />
     </WizardWrapper>
   );

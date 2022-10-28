@@ -13,7 +13,7 @@ html, body {
 }
 
 body {
-    padding-top: ${({ theme }) => theme.spacing.xxxl};
+    padding-top: ${({ theme }) => theme.spacing.xxl};
 }
 
 button, input {

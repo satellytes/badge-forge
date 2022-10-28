@@ -13,7 +13,6 @@ export const Wizard = ({ children }: WrapperProps) => {
 
 const WizardDiv = styled.div`
   position: relative;
-  max-width: 800px;
   height: 400px;
   padding: ${({ theme }) => theme.spacing.xxl};
   box-sizing: border-box;
@@ -38,19 +37,34 @@ export const WizardWrapper = ({ children }: WrapperProps) => {
 
 const WizardWrapperDiv = styled.div`
   display: grid;
-  grid-template-rows: ${({ theme }) => theme.spacing.xxl} ${({ theme }) =>
-      theme.spacing.xl} ${({ theme }) => theme.spacing.xl} 45px 1fr 55px;
+  grid-template-rows:
+    ${({ theme }) => theme.spacing.xxl}
+    ${({ theme }) => theme.spacing.xl}
+    ${({ theme }) => theme.spacing.xl}
+    45px
+    1fr
+    ${({ theme }) => theme.spacing.xl}
+    ${({ theme }) => theme.spacing.xxxl}
+    auto
+    80px;
   grid-template-areas:
     "header"
     "pad0"
     "subheader"
     "pad1"
     "wizard"
+    "pad2"
+    "faq-subheader"
+    "faq"
     "footer";
   grid-auto-flow: row;
-  align-items: end;
+  align-items: center;
   margin-left: ${({ theme }) => theme.spacing.s};
   margin-right: ${({ theme }) => theme.spacing.s};
+  max-width: 800px;
+  @media (max-width: 832px) {
+    width: 468px;
+  }
 `;
 
 export const ParamWrapper = ({ children }: WrapperProps) => {
@@ -123,6 +137,15 @@ export const SubTitleWrapper = styled.h2`
   font-size: ${({ theme }) => theme.font.size.h2};
   font-weight: ${({ theme }) => theme.font.weight.regular};
   margin: 0;
+`;
+
+export const H2Wrapper = styled.h2`
+  color: ${({ theme }) => theme.colors.gray900};
+  text-align: start;
+  font-size: ${({ theme }) => theme.font.size.h2};
+  font-weight: ${({ theme }) => theme.font.weight.heavy};
+  margin: 0;
+  padding: 20px 0;
 `;
 
 export const ColDiv = styled.div`
